@@ -1,6 +1,6 @@
 "use client"
 import { Box,Text,Image, Button, useDisclosure } from '@chakra-ui/react'
-import {valueone} from "../context/context"
+import {Valueone} from "../context/context"
 
 import React from 'react'
 import {
@@ -17,7 +17,7 @@ import FileUpload from '../uploadfile/upload'
 const Screen2 = () => {
     const { isOpen, onOpen, onClose } = useDisclosure()
     const cancelRef:any = React.useRef()
-    const {submit} = valueone()
+    const {submit} = Valueone()
     const handleFileSelect = (file: File | null) => {
         if (file) {
           // Handle the selected file

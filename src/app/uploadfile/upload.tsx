@@ -2,7 +2,7 @@
 
 import { Box, Button, FormControl, FormLabel, Input,Text,Image, } from '@chakra-ui/react';
 import { useRef, useState, ChangeEvent } from 'react';
-import {valueone} from "../context/context"
+import {Valueone} from "../context/context"
 interface FileUploadProps {
   onFileSelect: (file: File | null) => void;
 }
@@ -10,7 +10,7 @@ interface FileUploadProps {
 const FileUpload: React.FC<FileUploadProps> = ({ onFileSelect }) => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
-  const {setSubmit} = valueone()
+  const {setSubmit} = Valueone()
 
   const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
     const files = event.target.files;

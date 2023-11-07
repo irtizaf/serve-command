@@ -56,5 +56,5 @@ export default function Context({ children }: { children: ReactNode }) {
   );
 }
 
-export const valueone = () => useContext(ValueContext);
+export const Valueone = () => useContext(ValueContext);
 
