@@ -1,5 +1,8 @@
 // components/FileUpload.tsx
 
+
+import axios from 'axios';
+
 import { Box, Button, FormControl, FormLabel, Input,Text,Image, } from '@chakra-ui/react';
 import { useRef, useState, ChangeEvent } from 'react';
 import {Valueone} from "../context/context"
@@ -12,11 +15,11 @@ const FileUpload: React.FC<FileUploadProps> = ({ onFileSelect }) => {
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   const {setSubmit} = Valueone()
 
-  const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const files = event.target.files;
-    setSelectedFile(files?.[0] || null);
-    onFileSelect(files?.[0] || null);
-  };
+  // const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
+  //   const files = event.target.files;
+  //   setSelectedFile(files?.[0] || null);
+  //   onFileSelect(files?.[0] || null);
+  // };
 
   const resetFileInput = () => {
     setSelectedFile(null);
@@ -24,6 +27,62 @@ const FileUpload: React.FC<FileUploadProps> = ({ onFileSelect }) => {
   };
   const isSubmitDisabled = !selectedFile;
   setSubmit(isSubmitDisabled)
+  const [file, setFile] = useState<File | null>(null);
+  const [presignedUrl, setPresignedUrl] = useState<string | null>(null);
+
+  const getPresignedUrl = async () => {
+    try {
+      const response = await axios.get(
+        'https://zp2dhmgwaa.execute-api.us-east-1.amazonaws.com/generatepresignedurl?fileName=dummydata.txt&contentType=text/plain',
+        // {
+        //   params: {
+        //     fileName: 'dummydata.txt',
+        //     contentType: 'text/plain',
+        //   },
+        // }
+      );
+        console.log(response.data.uploadUrl)
+      setPresignedUrl(response.data.uploadUrl);
+    } catch (error) {
+      console.error('Error fetching presigned URL:', error);
+    }
+  };
+
+  
+  const uploadFile = async () => {
+    if (!presignedUrl || !file) {
+      console.error('Presigned URL or file not available.');
+      return;
+    }
+
+    try {
+      await axios.put(presignedUrl, file, {
+        headers: {
+          'Content-Type': 'text/plain', // Adjust the content type accordingly
+        },
+      });
+
+      console.log('File uploaded successfully!');
+    } catch (error) {
+      console.error('Error uploading file:', error);
+    }
+  };
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const files = event.target.files;
+    setSelectedFile(files?.[0] || null);
+    onFileSelect(files?.[0] || null);
+    getPresignedUrl()
+    setTimeout(() => {
+      uploadFile()
+    },5000);
+    const selectedFile = event.target.files && event.target.files[0];
+    if (selectedFile) {
+      setFile(selectedFile);
+    }
+  };
+
+
+
   
   return (
     <Box>

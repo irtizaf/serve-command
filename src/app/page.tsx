@@ -43,9 +43,16 @@ const Home = () => {
     </Box>
 )} */}
 
-<FileUpload/>
+{/* <FileUpload/> */}
+
+<Box 
+    display={{"2xl":"flex"}}>
+<NavBar/>
+<Sidescreen/>
 
 
+   
+    </Box>
   
 </Box>
   );
