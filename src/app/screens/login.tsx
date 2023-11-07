@@ -1,6 +1,6 @@
 import { Box, Button, Image, Input, Text } from '@chakra-ui/react'
 import React , { useState }from 'react'
-
+import { Valueone } from '../context/context';
 import {
   CognitoIdentityProviderClient,
   InitiateAuthCommand,
@@ -11,7 +11,7 @@ import {
 
 
 const Login = () => {
-  
+  const {setStep} = Valueone()
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
@@ -43,6 +43,7 @@ const Login = () => {
       } else {
         // Authentication successful
         console.log('Authentication successful', initiateAuthResponse);
+        setStep(2)
         
         // Redirect or perform any additional actions upon successful login
       }

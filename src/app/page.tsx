@@ -4,14 +4,13 @@ import { Box, Heading } from '@chakra-ui/react';
 import React from 'react';
 import NavBar from "./screens/screen1"
 import Sidescreen from './screens/sidescreen';
-
-
-
+import { Valueone } from './context/context';
+import Login from './screens/login';
 
 
 
 const Home = () => {
-  
+  const {step} = Valueone()
   // const handleFileSelect = (file: File | null) => {
   //   if (file) {
   //     // Handle the selected file
@@ -21,22 +20,27 @@ const Home = () => {
   //     console.log('File reset');
   //   }
   // };
+  console.log(step)
   return (
     
 
 
 <Box>
- {/* <Login/> */}
+  {step == 0 && (
+     <Login/> 
+  )}
+ 
 
 
-    <Box 
+   { step == 2 && ( <Box 
     display={{"2xl":"flex"}}>
 <NavBar/>
 <Sidescreen/>
-    
+
+
    
     </Box>
-
+)}
 
 
   
