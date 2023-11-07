@@ -169,7 +169,7 @@ const FileUpload = () => {
         //   },
         // }
       );
-
+        console.log(response.data.uploadUrl)
       setPresignedUrl(response.data.uploadUrl);
     } catch (error) {
       console.error('Error fetching presigned URL:', error);
