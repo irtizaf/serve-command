@@ -1,10 +1,10 @@
-// // components/FileUpload.tsx
+// components/FileUpload.tsx
 
 // import { Box, Button, FormControl, FormLabel, Input } from '@chakra-ui/react';
 // import { useRef, useState, ChangeEvent } from 'react';
 // import axios from 'axios';
 // import fs from 'fs';
-// import {value} from "../context/context"
+
 // interface FileUploadProps {
 //   onFileSelect: (file: File | null) => void;
 // }
@@ -12,7 +12,7 @@
 // const FileUpload: React.FC<FileUploadProps> = ({ onFileSelect }) => {
 //   const [selectedFile, setSelectedFile] = useState<File | null>(null);
 //   const fileInputRef = useRef<HTMLInputElement | null>(null);
-//   const {setSubmit} = value()
+ 
 
 //   const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
 //     const files = event.target.files;
@@ -70,8 +70,6 @@
 
 // export default FileUpload;
 
-// FileUploadForm.tsx
-// FileUploadForm.tsx
 
 
 
@@ -144,3 +142,78 @@
 // };
 
 // export default FileUploadForm;
+
+
+// pages/FileUpload.tsx
+
+// pages/FileUpload.tsx
+
+"use client"
+
+import { useState } from 'react';
+import axios from 'axios';
+import { Button, Container, Input } from '@chakra-ui/react';
+
+const FileUpload = () => {
+  const [file, setFile] = useState<File | null>(null);
+  const [presignedUrl, setPresignedUrl] = useState<string | null>(null);
+
+  const getPresignedUrl = async () => {
+    try {
+      const response = await axios.get(
+        'https://zp2dhmgwaa.execute-api.us-east-1.amazonaws.com/generatepresignedurl?fileName=dummydata.txt&contentType=text/plain',
+        // {
+        //   params: {
+        //     fileName: 'dummydata.txt',
+        //     contentType: 'text/plain',
+        //   },
+        // }
+      );
+
+      setPresignedUrl(response.data.url);
+    } catch (error) {
+      console.error('Error fetching presigned URL:', error);
+    }
+  };
+
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const selectedFile = event.target.files && event.target.files[0];
+    if (selectedFile) {
+      setFile(selectedFile);
+    }
+  };
+
+  const uploadFile = async () => {
+    if (!presignedUrl || !file) {
+      console.error('Presigned URL or file not available.');
+      return;
+    }
+
+    try {
+      await axios.put(presignedUrl, file, {
+        headers: {
+          'Content-Type': 'text/plain', // Adjust the content type accordingly
+        },
+      });
+
+      console.log('File uploaded successfully!');
+    } catch (error) {
+      console.error('Error uploading file:', error);
+    }
+  };
+
+  return (
+    <Container>
+      <h1>File Upload</h1>
+      <Button onClick={getPresignedUrl} colorScheme="teal" mb={4}>
+        Get Presigned URL
+      </Button>
+      <Input type="file" onChange={handleFileChange} mb={4} />
+      <Button onClick={uploadFile} disabled={!presignedUrl || !file} colorScheme="teal">
+        Upload File
+      </Button>
+    </Container>
+  );
+};
+
+export default FileUpload;
