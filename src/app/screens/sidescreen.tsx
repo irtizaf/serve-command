@@ -29,24 +29,7 @@ const Sidescreen = () => {
       };
 
 
-    // const uploadFile = async () => {
-    //     if (!pre || !file) {
-    //       console.error('Presigned URL or file not available.');
-    //       return;
-    //     }
     
-    //     try {
-    //       await axios.put(pre, file, {
-    //         headers: {
-    //           'Content-Type': 'text/plain', // Adjust the content type accordingly
-    //         },
-    //       });
-    
-    //       console.log('File uploaded successfully!');
-    //     } catch (error) {
-    //       console.error('Error uploading file:', error);
-    //     }
-    //   };
   
   return (
     <Box

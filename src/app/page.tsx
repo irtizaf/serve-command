@@ -27,7 +27,7 @@ const Home = () => {
 
 
 <Box>
-  {/* {step == 0 && (
+  {step == 0 && (
      <Login/> 
   )}
  
@@ -41,18 +41,11 @@ const Home = () => {
 
    
     </Box>
-)} */}
-
-{/* <FileUpload/> */}
-
-<Box 
-    display={{"2xl":"flex"}}>
-<NavBar/>
-<Sidescreen/>
+)}
 
 
-   
-    </Box>
+
+
   
 </Box>
   );

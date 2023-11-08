@@ -1,4 +1,4 @@
-
+"use client"
 import axios from 'axios';
 
 import { Box, Button, FormControl, FormLabel, Input,Text,Image, } from '@chakra-ui/react';
@@ -29,27 +29,7 @@ const FileUpload: React.FC<FileUploadProps> = ({ onFileSelect }) => {
   const isSubmitDisabled = !selectedFile;
   setSubmit(isSubmitDisabled)
   
-  //const [presignedUrl, setPresignedUrl] = useState<string | null>(null);
-
   
-  // const getPresignedUrl = async () => {
-  //   try {
-  //     const response = await axios.get(
-  //       'https://zp2dhmgwaa.execute-api.us-east-1.amazonaws.com/generatepresignedurl?fileName=dummydata.txt&contentType=text/plain',
-  //       // {
-  //       //   params: {
-  //       //     fileName: 'dummydata.txt',
-  //       //     contentType: 'text/plain',
-  //       //   },
-  //       // }
-  //     );
-  //       console.log(response.data.uploadUrl)
-  //     setPresignedUrl(response.data.uploadUrl);
-  //   } catch (error) {
-  //     console.error('Error fetching presigned URL:', error);
-  //   }
-  // };
-
   
   const uploadFile = async () => {
     console.log(pre)
@@ -71,19 +51,7 @@ const FileUpload: React.FC<FileUploadProps> = ({ onFileSelect }) => {
       console.error('Error uploading file:', error);
     }
   };
-  // const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-  //   const files = event.target.files;
-  //   setSelectedFile(files?.[0] || null);
-  //   onFileSelect(files?.[0] || null);
-  //   getPresignedUrl()
-  //   setTimeout(() => {
-  //     uploadFile()
-  //   },5000);
-  //   const selectedFile = event.target.files && event.target.files[0];
-  //   if (selectedFile) {
-  //     setFile(selectedFile);
-  //   }
-  // };
+  
 
  if (isSubmitDisabled == false) {
   uploadFile()
