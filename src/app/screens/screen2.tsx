@@ -2,6 +2,8 @@
 import { Box,Text,Image, Button, useDisclosure } from '@chakra-ui/react'
 import {Valueone} from "../context/context"
 
+
+
 import React from 'react'
 import {
     AlertDialog,
@@ -15,6 +17,8 @@ import {
 import FileUpload from '../uploadfile/upload'
 
 const Screen2 = () => {
+    
+
     const { isOpen, onOpen, onClose } = useDisclosure()
     const cancelRef:any = React.useRef()
     const {submit} = Valueone()

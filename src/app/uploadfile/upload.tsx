@@ -1,5 +1,3 @@
-// components/FileUpload.tsx
-
 
 import axios from 'axios';
 
@@ -13,13 +11,16 @@ interface FileUploadProps {
 const FileUpload: React.FC<FileUploadProps> = ({ onFileSelect }) => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
-  const {setSubmit} = Valueone()
-
-  // const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
-  //   const files = event.target.files;
-  //   setSelectedFile(files?.[0] || null);
-  //   onFileSelect(files?.[0] || null);
-  // };
+  const {setSubmit,pre} = Valueone()
+  const [file, setFile] = useState<File | null>(null);
+  const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const files = event.target.files;
+    setSelectedFile(files?.[0] || null);
+    onFileSelect(files?.[0] || null);
+    setFile(files?.[0] || null)
+    
+    //setPresignedUrl(pre)
+  };
 
   const resetFileInput = () => {
     setSelectedFile(null);
@@ -27,36 +28,39 @@ const FileUpload: React.FC<FileUploadProps> = ({ onFileSelect }) => {
   };
   const isSubmitDisabled = !selectedFile;
   setSubmit(isSubmitDisabled)
-  const [file, setFile] = useState<File | null>(null);
-  const [presignedUrl, setPresignedUrl] = useState<string | null>(null);
+  
+  //const [presignedUrl, setPresignedUrl] = useState<string | null>(null);
 
-  const getPresignedUrl = async () => {
-    try {
-      const response = await axios.get(
-        'https://zp2dhmgwaa.execute-api.us-east-1.amazonaws.com/generatepresignedurl?fileName=dummydata.txt&contentType=text/plain',
-        // {
-        //   params: {
-        //     fileName: 'dummydata.txt',
-        //     contentType: 'text/plain',
-        //   },
-        // }
-      );
-        console.log(response.data.uploadUrl)
-      setPresignedUrl(response.data.uploadUrl);
-    } catch (error) {
-      console.error('Error fetching presigned URL:', error);
-    }
-  };
+  
+  // const getPresignedUrl = async () => {
+  //   try {
+  //     const response = await axios.get(
+  //       'https://zp2dhmgwaa.execute-api.us-east-1.amazonaws.com/generatepresignedurl?fileName=dummydata.txt&contentType=text/plain',
+  //       // {
+  //       //   params: {
+  //       //     fileName: 'dummydata.txt',
+  //       //     contentType: 'text/plain',
+  //       //   },
+  //       // }
+  //     );
+  //       console.log(response.data.uploadUrl)
+  //     setPresignedUrl(response.data.uploadUrl);
+  //   } catch (error) {
+  //     console.error('Error fetching presigned URL:', error);
+  //   }
+  // };
 
   
   const uploadFile = async () => {
-    if (!presignedUrl || !file) {
+    console.log(pre)
+    console.log(file)
+    if (!pre || !file) {
       console.error('Presigned URL or file not available.');
       return;
     }
 
     try {
-      await axios.put(presignedUrl, file, {
+      await axios.put(pre, file, {
         headers: {
           'Content-Type': 'text/plain', // Adjust the content type accordingly
         },
@@ -67,21 +71,24 @@ const FileUpload: React.FC<FileUploadProps> = ({ onFileSelect }) => {
       console.error('Error uploading file:', error);
     }
   };
-  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const files = event.target.files;
-    setSelectedFile(files?.[0] || null);
-    onFileSelect(files?.[0] || null);
-    getPresignedUrl()
-    setTimeout(() => {
-      uploadFile()
-    },5000);
-    const selectedFile = event.target.files && event.target.files[0];
-    if (selectedFile) {
-      setFile(selectedFile);
-    }
-  };
+  // const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  //   const files = event.target.files;
+  //   setSelectedFile(files?.[0] || null);
+  //   onFileSelect(files?.[0] || null);
+  //   getPresignedUrl()
+  //   setTimeout(() => {
+  //     uploadFile()
+  //   },5000);
+  //   const selectedFile = event.target.files && event.target.files[0];
+  //   if (selectedFile) {
+  //     setFile(selectedFile);
+  //   }
+  // };
 
+ if (isSubmitDisabled == false) {
+  uploadFile()
 
+ }
 
   
   return (
@@ -107,6 +114,7 @@ const FileUpload: React.FC<FileUploadProps> = ({ onFileSelect }) => {
                         background={"white"}
                         borderRadius={{"2xl":"6px"}}
                         alignItems={{"2xl":"center"}}
+                        
           >
 
 
@@ -162,6 +170,7 @@ const FileUpload: React.FC<FileUploadProps> = ({ onFileSelect }) => {
                         fontStyle={"normal"}
                         fontWeight={500}
                         lineHeight={{"2xl":"28px"}}
+                        
                         >
                         File Successfully Uploaded
                         </Text>

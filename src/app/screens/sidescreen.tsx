@@ -1,9 +1,52 @@
 import { Box,Text,Image } from '@chakra-ui/react'
 import React from 'react'
 import Screen2 from './screen2';
+import {Valueone} from "../context/context"
+import axios from 'axios';
+import { useState } from 'react'
 
 const Sidescreen = () => {
-  
+    const {setSubmit,setPre,pre} = Valueone()
+    const [presignedUrl, setPresignedUrl] = useState<string | null>(null);
+
+    const getPresignedUrl = async () => {
+        try {
+          const response = await axios.get(
+            'https://zp2dhmgwaa.execute-api.us-east-1.amazonaws.com/generatepresignedurl?fileName=dummydata.txt&contentType=text/plain',
+            // {
+            //   params: {
+            //     fileName: 'dummydata.txt',
+            //     contentType: 'text/plain',
+            //   },
+            // }
+          );
+            console.log(response.data.uploadUrl)
+          setPresignedUrl(response.data.uploadUrl);
+          setPre(response.data.uploadUrl)
+        } catch (error) {
+          console.error('Error fetching presigned URL:', error);
+        }
+      };
+
+
+    // const uploadFile = async () => {
+    //     if (!pre || !file) {
+    //       console.error('Presigned URL or file not available.');
+    //       return;
+    //     }
+    
+    //     try {
+    //       await axios.put(pre, file, {
+    //         headers: {
+    //           'Content-Type': 'text/plain', // Adjust the content type accordingly
+    //         },
+    //       });
+    
+    //       console.log('File uploaded successfully!');
+    //     } catch (error) {
+    //       console.error('Error uploading file:', error);
+    //     }
+    //   };
   
   return (
     <Box
@@ -148,8 +191,9 @@ const Sidescreen = () => {
                 Import
                 </Text>
                 </Box> */}
-                <Screen2/>
-
+                <Box onClick={getPresignedUrl}>
+                <Screen2 />
+                </Box>
             </Box>
             <Box 
             display={{"2xl":"flex"}}
