@@ -119,98 +119,130 @@ const Login = () => {
 
   return (
     <Box 
-    display={{xl:"flex"}}
-    w={{xl:"1440px"}}
-    h={{xl:"960px"}}
-    px={{xl:"32px"}}
-    py={{xl:"48px"}}
-    flexDirection={{xl:"column"}}
-    justifyContent={{xl:"center"}}
-    alignItems={{xl:"center"}}
-    gap={{xl:"32px"}}
+    //display={{xl:"flex",lg:"flex",sm:"flex"}}
+    display={"flex"}
+    flexDirection={"column"}
+    justifyContent={"center"}
+    alignItems={"center"}
+    //h={"100vh"}
+   // border={{sm:'3px solid green'}}
+    w={{xl:"1440px",lg:"100%",sm:"100%"}}
+    h={{xl:"960px",lg:"100vh",sm:"100vh",md:"100vh"}}
+    px={{xl:"32px",lg:"none",sm:"auto"}}
+    py={{xl:"48px",lg:"none",sm:"auto"}}
+    //flexDirection={{xl:"column",lg:"column",sm:"column"}}
+    
+    //justifyContent={{xl:"center",lg:"center",sm:"center"}}
+    
+    //alignItems={{xl:"center",lg:"center",sm:"center"}}
+    
+    gap={{xl:"32px",lg:"20px",sm:"15px"}}
     background={"white"}
+   
+    
     >
+      
       <Box
-      display={{xl:"flex"}}
-      width={{xl:"360px"}}
-      flexDirection={{xl:"column"}}
-      alignItems={{xl:"center"}}
-      gap={{xl:"32px"}}
+      //display={{xl:"flex",lg:"flex"}}
+      display={"flex"}
+      width={{xl:"360px",lg:"250px",sm:"200px"}}
+      flexDirection={"column"}
+      //flexDirection={{xl:"column",lg:"column"}}
+      alignItems={"center"}
+      //alignItems={{xl:"center",lg:"center"}}
+      gap={{xl:"32px",lg:"20px",sm:"15px"}}
       >
         <Box
-        display={{xl:"flex"}}
-        flexDirection={{xl:"column"}}
-        alignItems={{xl:"center"}}
-        gap={{xl:"24px"}}
+        // display={{xl:"flex",lg:"flex"}}
+        // flexDirection={{xl:"column",lg:"column"}}
+        // alignItems={{xl:"center",lg:"center"}}
+        display={"flex"}
+        flexDirection={"column"}
+        
+        alignItems={"center"}
+        gap={{xl:"24px",lg:"15px",sm:"10px"}}
         alignSelf={"stretch"}
-        h={{xl:"98px"}}
+        h={{xl:"98px",lg:"auto"}}
         >
-          <Image src='/Flattened.png' w={{xl:"33px"}} h={{xl:"34px"}}/>
+          <Image src='/Flattened.png' 
+          w={{xl:"33px",lg:"30px",sm:"22px"}} 
+          h={{xl:"34px",lg:"30px",sm:"22px"}}
+          />
           <Text
           textColor={"gray.900"}
           textAlign={"center"}
           fontFamily={"Chivo"}
           fontStyle={"normal"}
           fontWeight={"400"}
-          lineHeight={{xl:"39.9px"}}
+          lineHeight={{xl:"39.9px",lg:"35px",sm:"auto"}}
+          fontSize={{xl:"30px",sm:"21px",lg:"25px"}}
           >
           Log in to your account
           </Text>
         </Box>
         <Box
-        display={{xl:"flex"}}
-        flexDirection={{xl:"column"}}
-        alignItems={{xl:"center"}}
-        gap={{xl:"24px"}}
+        // display={{xl:"flex",lg:"flex"}}
+        // flexDirection={{xl:"column",lg:"column"}}
+        // alignItems={{xl:"center",lg:"center"}}
+        display={"flex"}
+        flexDirection={"column"}
+        
+        alignItems={"center"}
+        gap={{xl:"24px",lg:"15px",sm:"10px"}}
         alignSelf={"stretch"}
         borderRadius={"12px"}
-        h={{xl:"212px"}}
+        h={{xl:"212px",lg:"auto",sm:"auto"}}
         >
         <Box
-        display={{xl:"flex"}}
-        flexDirection={{xl:"column"}}
-        alignItems={{xl:"flex-start"}}
-        gap={{xl:"20px"}}
+        display={"flex" }
+        flexDirection={"column"}
+        alignItems={"flex-start"}
+        gap={{xl:"20px",lg:"18px",sm:"8px"}}
         alignSelf={"stretch"}
         >
           <Box
-          display={{xl:"flex"}}
-          flexDirection={{xl:"column"}}
-          alignItems={{xl:"flex-start"}}
+          // display={{xl:"flex",lg:"flex"}}
+          // flexDirection={{xl:"column",lg:"column"}}
+          
+          display={"flex"}
+          flexDirection={"column"}
+          
+          alignItems={"flex-start"}
           alignSelf={"stretch"}
-          h={"64px"}
-          gap={{xl:"8px"}}
+          h={{xl:"64px",lg:"auto",sm:"auto"}}
+          gap={{xl:"8px",lg:"6px",sm:"4px"}}
           >
             <Text
-            h={{xl:"16px"}}
+            h={{xl:"16px",lg:"auto",sm:"auto"}}
             alignSelf={"stretch"}
             fontFamily={"Inter"}
-            fontSize={{xl:"12px"}}
+            fontSize={{xl:"12px",lg:"12px",sm:"12px"}}
             fontStyle={"normal"}
             fontWeight={600}
-            lineHeight={{xl:"16px"}}
-            letterSpacing={{xl:"0.3px"}}
+            lineHeight={{xl:"16px",lg:"15px",sm:"auto"}}
+            letterSpacing={{xl:"0.3px",lg:"0.3px",sm:"auto"}}
             textColor={"blackAlpha.700"}
             >
               Phone
             </Text>
 
             <Input 
-            display={{xl:"flex"}}
-            h={{xl:"40px"}}
-            flexDirection={{xl:"column"}}
+            display={"flex"}
+            h={{xl:"40px",lg:"auto",sm:"auto"}}
+            flexDirection={"column"}
             justifyContent={"center"}
             alignItems={"center"}
-            gap={{xl:"10px"}}
+            gap={{xl:"10px",lg:"8px",sm:"4px"}}
             placeholder='Enter your phone number'
-            px={{xl:"16px"}}
+            py={{sm:"5px"}}
+            px={{xl:"16px",lg:"14px",sm:"7px"}}
             flex={"1 0 0"}
             borderRadius={"4px"}
             border={"1px solid var(--gray-200, #E2E8F0)"}
             background={"white"}
             textColor={"#A0AEC0"}
             fontFamily={"Inter"}
-            fontSize={"16px"}
+            fontSize={{xl:"16px",sm:"14px"}}
             fontStyle={"normal"}
             fontWeight={400}
             lineHeight={"normal"}
@@ -219,22 +251,22 @@ const Login = () => {
             />
           </Box>
           <Box
-          display={{xl:"flex"}}
-          flexDirection={{xl:"column"}}
-          alignItems={{xl:"flex-start"}}
+          display={"flex"}
+          flexDirection={"column"}
+          alignItems={"flex-start"}
           alignSelf={"stretch"}
-          h={"64px"}
-          gap={{xl:"8px"}}
+          h={{xl:"64px",lg:"auto"}}
+          gap={{xl:"8px",lg:"6px"}}
           >
             <Text
-            h={{xl:"16px"}}
+            h={{xl:"16px",lg:"auto",sm:"auto"}}
             alignSelf={"stretch"}
             fontFamily={"Inter"}
-            fontSize={{xl:"12px"}}
+            fontSize={{xl:"12px",lg:"12px",sm:"12px"}}
             fontStyle={"normal"}
             fontWeight={600}
-            lineHeight={{xl:"16px"}}
-            letterSpacing={{xl:"0.3px"}}
+            lineHeight={{xl:"16px",lg:"14px",sm:"auto"}}
+            letterSpacing={{xl:"0.3px",lg:"0.3px",sm:"auto"}}
             textColor={"blackAlpha.700"}
             >
               Password
@@ -242,22 +274,23 @@ const Login = () => {
 
             <Input 
             type='password'
-            display={{xl:"flex"}}
-            h={{xl:"40px"}}
-            flexDirection={{xl:"column"}}
+            display={"flex"}
+            h={{xl:"40px",lg:"auto",sm:"auto"}}
+            flexDirection={"column"}
             justifyContent={"center"}
             alignItems={"center"}
-            gap={{xl:"10px"}}
+            gap={{xl:"10px",lg:"8px",sm:"4px"}}
             placeholder='••••••••
             '
-            px={{xl:"16px"}}
+            px={{xl:"16px",lg:"14px",sm:"7px"}}
+            py={{sm:"5px"}}
             flex={"1 0 0"}
             borderRadius={"4px"}
             border={"1px solid var(--gray-200, #E2E8F0)"}
             background={"white"}
             textColor={"#A0AEC0"}
             fontFamily={"Inter"}
-            fontSize={"16px"}
+            fontSize={{xl:"16px",lg:"14px",sm:"14px"}}
             fontStyle={"normal"}
             fontWeight={400}
             lineHeight={"normal"}
@@ -271,27 +304,28 @@ const Login = () => {
 
             <Box
             typeof='Button'
-            display={{xl:"flex"}}
-            height={{xl:"40px"}}
-            px={{xl:"16px"}}
+            display={"flex"}
+            height={{xl:"40px",lg:"auto",sm:"auto"}}
+            px={{xl:"16px",lg:"14px",sm:"7px"}}
+            py={{sm:"5px"}}
             justifyContent={"center"}
             alignItems={"center"}
-            gap={{xl:"8px"}}
+            gap={{xl:"8px",lg:"6px",sm:"4px"}}
             alignSelf={"stretch"}
             borderRadius={"6px"}
             background={"#11190C"}
-            w={{xl:"360px"}}
+            w={{xl:"360px",lg:"250px",sm:"200px"}}
             onClick={handleLogin}
             >
               <Text
-              w={{xl:"53px"}}
-              h={{xl:"24px"}}
+              w={{xl:"53px",lg:"auto",sm:"auto"}}
+              h={{xl:"24px",lg:"auto",sm:"auto"}}
               textColor={"white"}
               fontFamily={"Inter"}
-              fontSize={{xl:"16px"}}
+              fontSize={{xl:"16px",lg:"14px",sm:"12px"}}
               fontStyle={"normal"}
               fontWeight={600}
-              lineHeight={{xl:"24px"}}
+              lineHeight={{xl:"24px",lg:"20px",sm:"auto"}}
               >
               Sign in
               </Text>

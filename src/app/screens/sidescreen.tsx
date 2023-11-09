@@ -34,38 +34,43 @@ const Sidescreen = () => {
   return (
     <Box
     background={"#F7FAFC"} 
-    w={{"2xl":"1864px"}}
-    h={{"2xl":"1080px"}}
+    w={{"2xl":"1864px",sm:"100%",md:"100%"}}
+    h={{"2xl":"1080px",sm:"100vh",md:"100vh"}}
     >
         <Box 
         w={{"2xl":"1864px"}}
         h={{"2xl":"120px"}}
-        display={{"2xl":"flex"}}
-        alignItems={{"2xl":"center"}}
-        gap={{"2xl":"8px"}}
-        px={{"2xl":"32px"}}
-        py={{"2xl":"24px"}}
+        display={"flex"}
+        flexDirection={{"2xl":"row",sm:"column", md:"row"}}
+        alignItems={"center"}
+        gap={{"2xl":"8px",sm:"4px",md:"6px"}}
+        px={{"2xl":"32px",sm:"18px",md:"25px"}}
+        py={{"2xl":"24px",sm:"10px",md:"25px"}}
         >
             <Box 
-            display={{"2xl":"flex"}}
-            flexDirection={{"2xl":"column"}}
-            alignItems={{"2xl":"flex-start"}}
-            gap={{"2xl":"8px"}}
-            flex={{"2xl":"1 0 0"}}
+            display={"flex"}
+            flexDirection={"column"}
+            alignItems={{"2xl":"flex-start",sm:"center",md:"flex-start"}}
+            gap={{"2xl":"8px",sm:"4px",md:"6px"}}
+            flex={"1 0 0"}
 
             >
             <Text
-            fontSize={{"2xl":"30px"}}
-            h={{"2xl":"40px"}}
-            w={{"2xl":"176px"}}
+            fontSize={{"2xl":"30px",sm:"16px",md:"20px"}}
+            h={{"2xl":"40px",sm:"auto",md:"auto"}}
+            w={{"2xl":"176px",sm:"auto",md:"auto"}}
             fontFamily={"Chivo"} 
+            lineHeight={{"2xl":"39.9px",sm:"auto",md:"auto"}}
+            fontWeight={400}
+            fontStyle={"normal"}
+            textColor={"rgba(0, 0, 0, 0.87)"}
             >
             Import Data
             </Text>
             <Text
-            fontSize={{"2xl":"16px"}}
-            h={{"2xl":"24px"}}
-            w={{"2xl":"auto"}}
+            fontSize={{"2xl":"16px",sm:"12px",md:"14px"}}
+            h={{"2xl":"24px",sm:"auto",md:"auto"}}
+            w={{"2xl":"auto",sm:"auto",md:"auto"}}
             fontFamily={"Inter"}
             >
             Import data from the following tools in a few clicks.
@@ -74,75 +79,89 @@ const Sidescreen = () => {
 
             <Box 
             typeof='Button'
-            display={{"2xl":"flex"}}
-            w={{"2xl":"auto"}}
-            h={{"2xl":"32px"}}
-            gap={{"2xl":"8px"}}
-            px={{"2xl":"12px"}}
-            borderRadius={{"2xl":"6px"}}
-            border={{"2xl":"1px"}}
-           borderColor={{"2xl":"#11190C"}}
-            justifyContent={{"2xl":"center"}}
-            alignItems={{"2xl":"center"}}
+            display={"flex"}
+            w={{"2xl":"auto",sm:"auto",md:"auto"}}
+            h={{"2xl":"32px",sm:"auto",md:"auto"}}
+            gap={{"2xl":"8px",sm:"4px",md:"6px"}}
+            px={{"2xl":"12px",sm:"8px",md:"8px"}}
+            borderRadius={"6px"}
+            border={"1px"}
+           borderColor={"#11190C"}
+            justifyContent={"center"}
+            alignItems={"center"}
             >
-                <Text>
+                <Text
+                textColor={"#11190C"}
+                fontFamily={"Inter"}
+                fontSize={{"2xl":"14px",sm:"10px",md:"10px"}}
+                fontStyle={"normal"}
+                fontWeight={600}
+                lineHeight={{"2xl":"20px",sm:"auto",md:"auto"}}
+                >
                 Call to Action
                 </Text>
                 <Image src='/right-icon.png' 
-                h={{"2xl":"14px"}} 
-                w={{"2xl":"14px"}}
+                h={{"2xl":"14px",sm:"10px",md:"10px"}} 
+                w={{"2xl":"14px",sm:"10px",md:"10px"}}
                 />
 
             </Box>
         </Box>
 
     <Box 
-     px={{"2xl":"32px"}}
-     display={{"2xl":"flex"}}
-     w={{"2xl":'1800px'}}
-     alignItems={{"2xl":"flex-start"}}
-     gap={{"2xl":"8px"}}
-     pt={{"2xl":"16px"}}
+     px={{"2xl":"32px",sm:"12px",md:"20px"}}
+     display={"flex"}
+     w={{"2xl":'1800px',sm:"auto",md:"auto"}}
+     alignItems={"flex-start"}
+     gap={{"2xl":"8px",sm:"4px",md:"6px"}}
+     pt={{"2xl":"16px",sm:"8px",md:"12px"}}
+     justifyContent={{ "2xl":"start",sm:"center",md:"start"}}
      
      >
 
         <Box
-        display={{"2xl":"flex"}}
-        w={{"2xl":"431px"}}
-        p={{"2xl":"24px"}}
-        flexDirection={{"2xl":"column"}}
-        alignItems={{"2xl":"flex-start"}}
-        gap={{"2xl":"10px"}}
+        display={"flex"}
+        w={{"2xl":"431px",sm:"200px",md:"250px"}}
+        p={{"2xl":"24px",sm:"12px",md:"18px"}}
+        flexDirection={"column"}
+        alignItems={"flex-start"}
+        gap={{"2xl":"10px",sm:"auto",md:"auto"}}
         flexShrink={0}
-        borderRadius={{"2xl":"6px"}}
-        border={{"2xl":`1px`}}
+        borderRadius={"6px"}
+        border={`1px`}
         background={"#fff"}
         borderColor={"rgba(17, 25, 12, 0.30)"}
         >
             <Box
-            display={{"2xl":"flex"}}
-            flexDirection={{"2xl":"column"}}
-            gap={{"2xl":"12px"}}
+            display={"flex"}
+            flexDirection={"column"}
+            gap={{"2xl":"12px",sm:"6px",md:"8px"}}
             alignSelf={"stretch"}
             
             >
 
             <Box 
-            display={{"2xl":"flex"}}
-            alignSelf={{"2xl":"stretch"}}
-            alignItems={{"2xl":"flex-start"}}
-            gap={{"2xl":"10px"}}
-            w={{"2xl":"383px"}}
-            h={{"2xl":"50px"}}
+            display={"flex"}
+            alignSelf={"stretch"}
+            alignItems={"flex-start"}
+            gap={{"2xl":"10px",sm:"10px",md:"10px"}}
+            w={{"2xl":"383px",sm:"auto",md:"auto"}}
+            h={{"2xl":"50px",sm:"auto",md:"auto"}}
 
             >
                <Box 
-               w={{"2xl":"282px"}}
-               h={{"2xl":"50px"}}
+               display={"flex"}
+               flexDirection={"column"}
+               alignItems={"flex-start"}
+               flex={"1 0 0"}
+               
+               
+               w={{"2xl":"282px",sm:"auto",md:"auto"}}
+               h={{"2xl":"50px",sm:"auto",md:"auto"}}
                >
-                <Image src='Logo.svg' 
-                w={{"2xl":"178px"}}
-                h={{"2xl":"50px"}}
+                <Image src='Logo (1).svg' 
+                w={{"2xl":"178px",sm:"80px",md:"100px"}}
+                h={{"2xl":"50px",sm:"30px",md:"30px"}}
                 />
                 </Box>
 {/* 
@@ -174,33 +193,36 @@ const Sidescreen = () => {
                 Import
                 </Text>
                 </Box> */}
-                <Box onClick={getPresignedUrl}>
+                <Box
+                
+                onClick={getPresignedUrl}>
                 <Screen2 />
                 </Box>
             </Box>
             <Box 
-            display={{"2xl":"flex"}}
-            flexDirection={{"2xl":"column"}}
-            gap={{"2xl":"8px"}}
+            display={"flex"}
+            flexDirection={"column"}
+            gap={{"2xl":"8px",sm:"4px",md:"6px"}}
             alignSelf={"stretch"}
+          
             
             >
                 <Text
                 textColor={"#000"}
-                fontSize={{"2xl":"20px"}}
+                fontSize={{"2xl":"20px",sm:"14px",md:"16px"}}
                 fontStyle={"normal"}
                 fontWeight={500}
-                lineHeight={{"2xl":"28px"}}
+                lineHeight={{"2xl":"28px",sm:"auto",md:"auto"}}
                 >
                 Hindsite Software
                 </Text>
                 <Text
                 fontFamily={"Inter"}
-                fontSize={{"2xl":"16px"}}
+                fontSize={{"2xl":"16px",sm:"10px",md:"12px"}}
                 fontStyle={"normal"}
                 fontWeight={400}
-                lineHeight={{"2xl": "24px"}}
-                w={{"2xl":"383px"}}
+                lineHeight={{"2xl":"24px",sm:"auto",md:"auto"}}
+                w={{"2xl":"383px",sm:"auto",md:"auto"}}
                 alignSelf={"stretch"}
                 textColor={"#4A4B57"}
                 >

@@ -10,147 +10,148 @@ const NavBar = () => {
    
     >
         <Box 
-        height={{"2xl":"1080px"}}
-        w={{"2xl":"56px"}}
-        borderRight={{"2xl":"1px"}}
-        display={{"2xl":"flex"}}
-        flexDirection={{"2xl":"column"}}
-        justifyContent={{"2xl":"space-between"}}
-        borderColor={{"2xl":"blackAlpha.200"}}
-        background={{"2xl":"whiteAlpha.900"}}
+        height={{"2xl":"1080px",sm:"100vh",md:"100vh"}}
+        w={{"2xl":"56px",sm:"auto",md:"auto"}}
+        borderRight={"1px"}
+        display={"flex"}
+        flexDirection={"column"}
+        justifyContent={"space-between"}
+        borderColor={"blackAlpha.200"}
+        background={"whiteAlpha.900"}
         >
             <Box 
-            w={{"2xl":"56px"}}
-            display={{"2xl":"flex"}}
-            flexDirection={{"2xl":"column"}}
-            alignItems={{"2xl":"flex-start"}}
-            alignSelf={{"2xl":"stretch"}}
-            pt={{"2xl":"32px"}}
-            gap={{"2xl":"32px"}}
+            w={{"2xl":"56px",sm:"auto",md:"auto"}}
+            display={"flex"}
+            flexDirection={"column"}
+            alignItems={"flex-start"}
+            alignSelf={"stretch"}
+            pt={{"2xl":"32px",sm:"10px",md:"15px"}}
+            gap={{"2xl":"32px",sm:"10px",md:"15px"}}
             >
                 <Box 
-                w={{"2xl":"56px"}}
-                display={{"2xl":"flex"}}
-                flexDirection={{"2xl":"column"}}
-                alignItems={{"2xl":"center"}}
-                alignSelf={{"2xl":"stretch"}}
+                w={{"2xl":"56px",sm:"auto",md:"auto"}}
+                display={"flex"}
+                flexDirection={"column"}
+                alignItems={"center"}
+                alignSelf={"stretch"}
                  >
                     
                 <Image src={'/Flattened.png'}
                  alt={'image'}
-                width={{ "2xl":"33px"}} 
-                height={{"2xl":"34px"}}
+                width={{ "2xl":"33px",sm:"20px",md:"25px"}} 
+                height={{"2xl":"34px",sm:"20px",md:"25px"}}
                  /> 
                  </Box>
                  <Box
-                 display={{"2xl":"flex"}}
-                 flexDirection={{"2xl":"column"}}
-                 alignItems={{"2xl":"center"}}
-                 alignSelf={{"2xl":"stretch"}}
-                 gap={{"2xl":"16px"}}
-                 px={{"2xl":"16px"}}
+                 display={"flex"}
+                 flexDirection={"column"}
+                 alignItems={"center"}
+                 alignSelf={"stretch"}
+                 gap={{"2xl":"16px",sm:"8px",md:"12px" }}
+                 px={{"2xl":"16px",sm:"8px",md:"12px"}}
                  >
                 <Box
                 typeof='Button'
-                display={{"2xl":"flex"}}
+                display={"flex"}
                 p={{"2xl":"0px"}}
-                justifyContent={{"2xl":"center"}}
-                alignItems={{"2xl":"center"}}
-                gap={{"2xl":"8px"}}
-                height={{"2xl":"auto"}}
-                w={{"2xl":"auto"}}
-                borderRadius={{"2xl":"5px"}}
+                justifyContent={"center"}
+                alignItems={"center"}
+                gap={{"2xl":"8px",sm:"4px",md:"6px"}}
+                height={{"2xl":"auto",sm:"auto",md:"auto"}}
+                w={{"2xl":"auto",sm:"auto",md:"auto"}}
+                borderRadius={"5px"}
                 >
                 <Image src={'/Nav Bar Button.png'}
                  alt={'image'}
-                 width={{ "2xl":"24px"}} 
-                 height={{"2xl":"24px"}}
+                 width={{ "2xl":"24px",sm:"20px",md:"22px"}} 
+                 height={{"2xl":"24px",sm:"20px",md:"22px"}}
                   />
                 </Box>
                 <Box
                 typeof='Button'
-                display={{"2xl":"flex"}}
+                display={"flex"}
                 p={{"2xl":"0px"}}
-                justifyContent={{"2xl":"center"}}
-                alignItems={{"2xl":"center"}}
-                gap={{"2xl":"8px"}}
-                height={{"2xl":"auto"}}
-                w={{"2xl":"auto"}}
-                borderRadius={{"2xl":"5px"}}
+                justifyContent={"center"}
+                alignItems={"center"}
+                gap={{"2xl":"8px",sm:"4px",md:"6px"}}
+                height={{"2xl":"auto",sm:"auto",md:"auto"}}
+                w={{"2xl":"auto",sm:"auto",md:"auto"}}
+                borderRadius={"5px"}
                 >
                 <Image src={'/NavBarButton.png'} 
                 alt={'image'} 
-                width={{ "2xl":"24px"}} 
-                height={{"2xl":"24px"}} 
+                width={{ "2xl":"24px",sm:"20px",md:"22px"}} 
+                height={{"2xl":"24px",sm:"20px",md:"22px"}} 
                 />
                 </Box>
                 <Box
                 typeof='Button'
-                display={{"2xl":"flex"}}
+                display={"flex"}
                 p={{"2xl":"0px"}}
-                justifyContent={{"2xl":"center"}}
-                alignItems={{"2xl":"center"}}
-                gap={{"2xl":"8px"}}
-                height={{"2xl":"auto"}}
-                w={{"2xl":"auto"}}
-                borderRadius={{"2xl":"5px"}}
+                justifyContent={"center"}
+                alignItems={"center"}
+                gap={{"2xl":"8px",sm:"4px",md:"6px"}}
+                height={{"2xl":"auto",sm:"auto",md:"auto"}}
+                w={{"2xl":"auto",sm:"auto",md:"auto"}}
+                borderRadius={"5px"}
                 >
                 <Image src={'/coins-hand.png'} 
                 alt={'image'} 
-                width={{ "2xl":"24px"}} 
-                height={{"2xl":"24px"}} 
+                width={{ "2xl":"24px",sm:"20px",md:"22px"}} 
+                height={{"2xl":"24px",sm:"20px",md:"22px"}} 
                 />
                 </Box>
                 </Box>
             </Box>
 
              <Box 
-             w={{"2xl":"56px"}}
-             h={{"2xl":"120px"}}
-             display={{"2xl":"flex"}}
-             flexDirection={{"2xl":"column"}}
-             gap={{"2xl":"24px"}}
-             alignItems={{"2xl":"center"}}
-             alignSelf={{"2xl":"stretch"}}
+             w={{"2xl":"56px",sm:"auto",md:"auto"}}
+             h={{"2xl":"120px",sm:"auto",md:"auto"}}
+             display={"flex"}
+             flexDirection={"column"}
+             gap={{"2xl":"24px",sm:"12px",md:"20px"}}
+             alignItems={"center"}
+             alignSelf={"stretch"}
+             pb={{sm:"12px"}}
              >
                 <Box
                 typeof='Button'
-                display={{"2xl":"flex"}}
-                justifyContent={{"2xl":"center"}}
-                gap={{"2xl":"8px"}}
-                borderRadius={{"2xl":"5px"}}
-                border={{"2xl":"1px"}}
-                borderColor={{"2xl":"blackAlpha.200"}}
-                background={{"2xl":`blackAlpha.50` }}
-                w={{"2xl":"auto"}}
-                h={{"2xl":"auto"}}
-                p={{"2xl":"8px"}}
+                display={"flex"}
+                justifyContent={"center"}
+                gap={{"2xl":"8px",sm:"4px",md:"6px"}}
+                borderRadius={"5px"}
+                border={"1px"}
+                borderColor={"blackAlpha.200"}
+                background={`blackAlpha.50` }
+                w={{"2xl":"auto",sm:"auto",md:"auto"}}
+                h={{"2xl":"auto",sm:"auto",md:"auto"}}
+                p={{"2xl":"8px",sm:"4px",md:"5px"}}
                 >
                 <Image src={'/settings-02.png'} 
                 alt={'image'} 
-                width={{ "2xl":"24px"}} 
-                height={{"2xl":"24px"}} 
+                width={{ "2xl":"24px",sm:"20px",md:"22px"}} 
+                height={{"2xl":"24px",sm:"20px",md:"22px" }} 
                 />
                 </Box>
 
 
                 <Box
                 typeof='Button'
-                display={{"2xl":"flex"}}
-                justifyContent={{"2xl":"center"}}
+                display={"flex"}
+                justifyContent={"center"}
                 
-                borderRadius={{"2xl":"200px"}}
+                borderRadius={"200px"}
              
                 flexShrink={0}
-                background={{"2xl":`gray.200` }}
-                w={{"2xl":"32px"}}
-                h={{"2xl":"32px"}}
-                p={{"2xl":"6.667px"}}
+                background={`gray.200` }
+                w={{"2xl":"32px",sm:"24px",md:"28px"}}
+                h={{"2xl":"32px",sm:"24px",md:"28px"}}
+                p={{"2xl":"6.667px",sm:"5px",md:"auto"}}
                 >
                 <Image src={'/user-01.svg'} 
                 alt={'image'} 
-                width={{ "2xl":"18.667pxpx"}} 
-                height={{"2xl":"18.667pxpx"}} 
+                width={{ "2xl":"18.667px",sm:"12px",md:"15px"}} 
+                height={{"2xl":"18.667px",sm:"12px",md:"15px"}} 
                 />
                 </Box>
              </Box>

@@ -33,32 +33,32 @@ const Screen2 = () => {
       };
   return (
     <>
-    <Button onClick={onOpen}>
+    <Button onClick={onOpen} h={"auto"}>
         
     <Box 
             typeof='Button'
-            display={{"2xl":"flex"}}
-            w={{"2xl":"91px"}}
-            h={{"2xl":"32px"}}
-            gap={{"2xl":"8px"}}
-            px={{"2xl":"12px"}}
-            alignItems={{"2xl":"center"}}
-            justifyContent={{"2xl":"center"}}
-            borderRadius={{"2xl":"6px"}}
-            border={{"2xl":"1px"}}
-            borderColor={{"2xl":"#11190C"}}
+            display={"flex"}
+            w={{"2xl":"91px",sm:"auto",md:"auto"}}
+            h={{"2xl":"32px",sm:"auto",md:"auto"}}
+            gap={{"2xl":"8px",sm:"4px",md:"auto"}}
+            px={{"2xl":"12px",sm:"6px",md:"8px"}}
+            alignItems={"center"}
+            justifyContent={"center"}
+            borderRadius={"6px"}
+            border={"1px"}
+            borderColor={"#11190C"}
             
             >
                 <Image src='/left-icon.png' 
-                h={{"2xl":"14px"}} 
-                w={{"2xl":"14px"}}
+                h={{"2xl":"14px",sm:"8px",md:"8px"}} 
+                w={{"2xl":"14px",sm:"8px",md:"8px"}}
                 />
                 <Text
                 fontFamily={"Inter"}
-                fontSize={{"2xl":"14px"}}
+                fontSize={{"2xl":"14px",sm:"10px",md:"12px"}}
                 fontStyle={"normal"}
                 fontWeight={"600"}
-                lineHeight={{"2xl":"20px"}}
+                lineHeight={{"2xl":"20px",sm:"auto",md:"auto"}}
                 >
                 Import
                 </Text>
@@ -73,7 +73,7 @@ const Screen2 = () => {
       >
         <AlertDialogOverlay />
 
-    <AlertDialogContent>
+    <AlertDialogContent w={{sm:"90%","2xl":"auto",xl:"auto",lg:"auto",md:"auto"}}>
     
     <Box
     // w={{"2xl":"1920px"}}
@@ -82,75 +82,79 @@ const Screen2 = () => {
     display={"flex"}
     justifyContent={"center"}
     alignItems={"center"}
+    
 
     >
         <Box
-        w={{"2xl":"900px"}}
-        h={{"2xl":"602px"}}
-        borderRadius={{"2xl":"20px"}}
+        w={{"2xl":"900px",sm:"100%",xl:"100%",lg:"100%",md:"100%" }}
+        h={{"2xl":"602px",sm:"50%"}}
+        borderRadius={"20px"}
         background={"#FFF"}
-        display={{"2xl":"flex"}}
-        flexDirection={{"2xl":"column"}}
-        alignItems={{"2xl":"flex-start"}}
-        gap={{"2xl":"8px"}}
-        px={{"2xl":"40px"}}
-        py={{"2xl":"32px"}}
+        display={"flex"}
+        flexDirection={"column"}
+        alignItems={"flex-start"}
+        gap={{"2xl":"8px",sm:"4px"}}
+        px={{"2xl":"40px",sm:"10px",md:"25px",lg:"30px",xl:"35px"}}
+        py={{"2xl":"32px",sm:"20px",md:"20px",lg:"22px",xl:"30px"}}
+        
         >
             <Box
-            display={{"2xl":"flex"}}
-            flexDirection={{"2xl":"column"}}
+            display={"flex"}
+            flexDirection={"column"}
             alignSelf={"stretch"}
-            gap={{"2xl":"30px"}}
-            alignItems={{"2xl":"flex-start"}}
+            gap={{"2xl":"30px",sm:"10px"}}
+            alignItems={"flex-start"}
             >
             <Box
-            display={{"2xl":"flex"}}
-            alignItems={{"2xl":"flex-start"}}
-            gap={{"2xl":"16px"}}
+            display={"flex"}
+            alignItems={"flex-start"}
+            gap={{"2xl":"16px",sm:"6px"}}
             alignSelf={"stretch"}
-            w={{"2xl":"820px"}}
-            h={{"2xl":"62px"}}
+            w={{"2xl":"820px",sm:"auto"}}
+            h={{"2xl":"62px",sm:"auto"}}
 
             >
                 <Box
-                display={{"2xl":"flex"}}
-                flexDirection={{"2xl":"column"}}
-                justifyContent={{"2xl":"center"}}
-                alignItems={{"2xl":"center"}}
-                borderRadius={{"2xl":"100px"}}
+                display={"flex"}
+                flexDirection={"column"}
+                justifyContent={"center"}
+                alignItems={"center"}
+                borderRadius={"100px"}
                 background={"rgba(17, 25, 12, 0.04)"}
-                height={{"2xl":"40px"}}
-                w={{"2xl":"40px"}}
+                height={{"2xl":"40px",sm:"28px"}}
+                w={{"2xl":"40px",sm:"28px"}}
                 >
-                <Image src="/info-circle.svg" w={{"2xl":"24px"}} h={{"2xl":"24px"}}/>
+                <Image src="/info-circle.svg" 
+                w={{"2xl":"24px",sm:"17px"}} 
+                h={{"2xl":"24px",sm:"17px"}}/>
                 </Box>
                     <Box
-                    display={{"2xl":"flex"}}
-                    flexDirection={{"2xl":"column"}}
-                    alignItems={{"2xl":"flex-start"}}
-                    gap={{"2xl":"8px"}}
+                    display={"flex"}
+                    flexDirection={"column"}
+                    alignItems={"flex-start"}
+                    gap={{"2xl":"8px",sm:"4px"}}
                     flex={"1 0 0"}
                     >
                         <Text
                         alignSelf={"stretch"}
                         textColor={"rgba(0, 0, 0, 0.87)"}
                         fontFamily={"Inter"}
-                        fontSize={{"2xl":"24px"}}
+                        fontSize={{"2xl":"24px",sm:"16px"}}
                         fontStyle={"normal"}
                         fontWeight={500}
-                        lineHeight={{"2xl":"32px"}}
+                        lineHeight={{"2xl":"32px",sm:"auto"}}
                         >
                         Prepare Your Hindsite Import
                         </Text>
                         <Text
-                        h={{"2xl":"22px"}}
+                        h={{"2xl":"22px",sm:"auto"}}
                         alignSelf={"stretch"}
                         textColor={"rgba(0, 0, 0, 0.64)"}
                         fontFamily={"Inter"}
-                        fontSize={{"2xl":"16px"}}
+                        fontSize={{"2xl":"16px",sm:"14px"}}
                         fontStyle={"normal"}
                         fontWeight={400}
-                        lineHeight={{"2xl":"24px"}}
+                        lineHeight={{"2xl":"24px",sm:"auto"}}
                         >
                         To get started, you will need to export your latest backup of Hindsite.
                         </Text>
@@ -159,40 +163,40 @@ const Screen2 = () => {
             </Box>
 
             <Box
-            display={{"2xl":"flex"}}
-            flexDirection={{"2xl":"column"}}
-            alignItems={{"2xl":"flex-start"}}
+            display={"flex"}
+            flexDirection={"column"}
+            alignItems={"flex-start"}
             alignSelf={"stretch"}
-            gap={{"2xl":"16px"}}
+            gap={{"2xl":"16px",sm:"6px"}}
             >
                 <Box
-                display={{"2xl":"flex"}}
-                flexDirection={{"2xl":"column"}}
-                alignItems={{"2xl":"flex-start"}}
-                gap={{"2xl":"16px"}}
+                display={"flex"}
+                flexDirection={"column"}
+                alignItems={"flex-start"}
+                gap={{"2xl":"16px",sm:"6px"}}
                 alignSelf={"stretch"}
                 >
                 <Text
                 textColor={"rgba(0, 0, 0, 0.92)"}
                 fontFamily={"Inter"}
-                fontSize={{"2xl":"16px"}}
+                fontSize={{"2xl":"16px",sm:"14px"}}
                 fontStyle={"normal"}
                 fontWeight={500}
-                lineHeight={{"2xl":"24px"}}
+                lineHeight={{"2xl":"24px",sm:"auto"}}
                 height={"auto"}
                 w={"auto"}
                 >
                 Step 1. Create Hindsite Backup
                 </Text>
                 <Text
-                w={{"2xl":"820px"}}
-                h={{"2xl":"48px"}}
+                w={{"2xl":"820px",sm:"auto"}}
+                h={{"2xl":"48px",sm:"auto"}}
                 textColor={"blackAlpha.700"}
                 fontFamily={"Inter"}
-                fontSize={{"2xl":"16px"}}
+                fontSize={{"2xl":"16px",sm:"14px"}}
                 fontStyle={"normal"}
                 fontWeight={400}
-                lineHeight={"24px"}
+                lineHeight={{"2xl":"24px",sm:"auto"}}
 
                 >
                 In Hindsite, go to “Daily Must Do” section and click “Run Backup”. Save the backup file somewhere you can easily find it, like on your desktop.
@@ -200,33 +204,33 @@ const Screen2 = () => {
                 </Box>
 
                 <Box
-                display={{"2xl":"flex"}}
-                flexDirection={{"2xl":"column"}}
-                alignItems={{"2xl":"flex-start"}}
-                gap={{"2xl":"16px"}}
+                display={"flex"}
+                flexDirection={"column"}
+                alignItems={"flex-start"}
+                gap={{"2xl":"16px",sm:"6px"}}
                 alignSelf={"stretch"}
                 >
                 <Text
                 textColor={"rgba(0, 0, 0, 0.92)"}
                 fontFamily={"Inter"}
-                fontSize={{"2xl":"16px"}}
+                fontSize={{"2xl":"16px",sm:"14px"}}
                 fontStyle={"normal"}
                 fontWeight={500}
-                lineHeight={{"2xl":"24px"}}
+                lineHeight={{"2xl":"24px",sm:"auto"}}
                 height={"auto"}
                 w={"auto"}
                 >
                 Step 2. Unzip Hindsite Backup File
                 </Text>
                 <Text
-                w={{"2xl":"820px"}}
-                h={{"2xl":"48px"}}
+                w={{"2xl":"820px",sm:"auto"}}
+                h={{"2xl":"48px",sm:"auto"}}
                 textColor={"blackAlpha.700"}
                 fontFamily={"Inter"}
-                fontSize={{"2xl":"16px"}}
+                fontSize={{"2xl":"16px",sm:"14px"}}
                 fontStyle={"normal"}
                 fontWeight={400}
-                lineHeight={"24px"}
+                lineHeight={{"2xl":"24px",sm:"auto"}}
 
                 >
                 Find the backup file and use your computer to “Unzip” the file. The file should read “backup.txt”. Save this file somewhere you can easily find it.
@@ -234,38 +238,38 @@ const Screen2 = () => {
                 </Box>
 
                 <Box
-                w={{"2xl":"820px"}}
-                h={{"2xl":"auto"}}
-                display={{"2xl":"flex"}}
-                flexDirection={{"2xl":"column"}}
-                alignItems={{"2xl":"flex-start"}}
+                w={{"2xl":"820px",sm:"auto"}}
+                h={{"2xl":"auto",sm:"auto"}}
+                display={"flex"}
+                flexDirection={"column"}
+                alignItems={"flex-start"}
                 alignSelf={"stretch"}
-                gap={{"2xl":"32px"}}
+                gap={{"2xl":"32px",sm:"12px"}}
                 >
                     <Text
                     textColor={"blackAlpha.900"}
                     fontFamily={"Inter"}
-                fontSize={{"2xl":"16px"}}
+                fontSize={{"2xl":"16px",sm:"14px"}}
                 fontStyle={"normal"}
                 fontWeight={400}
-                lineHeight={"24px"}
+                lineHeight={{"2xl":"24px",sm:"auto"}}
 
                     >
                     Step 3. Upload Your Backup File Here
                     </Text>
 
                     <Box
-                    display={{"2xl":"flex"}}
-                    height={{"2xl":"auto"}}
-                    width={{"2xl":"820px"}}
-                    flexDirection={{"2xl":"column"}}
-                    justifyContent={{"2xl":"center"}}
-                    alignItems={{"2xl":"center"}}
-                    p={{"2xl":"10px"}}
-                    gap={{"2xl":"10px"}}
+                    display={"flex"}
+                    height={{"2xl":"auto",sm:"auto"}}
+                    width={{"2xl":"820px",sm:"auto"}}
+                    flexDirection={"column"}
+                    justifyContent={"center"}
+                    alignItems={"center"}
+                    p={{"2xl":"10px",sm:"5px"}}
+                    gap={{"2xl":"10px",sm:"5px"}}
                     alignSelf={"stretch"}
-                    borderRadius={{"2xl":"8px"}}
-                    border={{"2xl":"2px dashed"}}
+                    borderRadius={"8px"}
+                    border={"2px dashed"}
                     borderColor={"blackAlpha.300"}
                     background={"#F7F7FA"}
                     >
@@ -361,50 +365,50 @@ const Screen2 = () => {
             </Box>
 
             <Box
-            display={{"2xl":"flex"}}
-            alignItems={{"2xl":"flex-start"}}
-            gap={{"2xl":"16px"}}
+            display={"flex"}
+            alignItems={"flex-start"}
+            gap={{"2xl":"16px",sm:"10px"}}
             alignSelf={"stretch"}
             >
                 <Button
-                display={{"2xl":"flex"}}
-                height={{"2xl":"32px"}}
-                px={{"2xl":"12px"}}
-                justifyContent={{"2xl":"center"}}
-                alignItems={{"2xl":"center"}}
-                gap={{"2xl":"8px"}}
+                display={"flex"}
+                height={{"2xl":"32px",sm:"auto"}}
+                px={{"2xl":"12px",sm:"auto"}}
+                justifyContent={"center"}
+                alignItems={"center"}
+                gap={{"2xl":"8px",sm:"4px"}}
                 >
                     <Text
                     textColor={"blackAlpha.900"}
                     fontFamily={"Inter"}
-                    fontSize={{"2xl":"14px"}}
+                    fontSize={{"2xl":"14px",sm:"10px"}}
                     fontStyle={"normal"}
                     fontWeight={600}
-                    lineHeight={{"2xl":"20px"}}
+                    lineHeight={{"2xl":"20px",sm:"auto"}}
                     >
                     Cancel
                     </Text>
                 
                 </Button>
                 <Box
-                 display={{"2xl":"flex"}}
-                 height={{"2xl":"32px"}}
-                 px={{"2xl":"12px"}}
-                 justifyContent={{"2xl":"center"}}
-                 alignItems={{"2xl":"center"}}
-                 gap={{"2xl":"8px"}}
+                 display={"flex"}
+                 height={{"2xl":"32px",sm:"auto"}}
+                 px={{"2xl":"12px",sm:"4px"}}
+                 justifyContent={"center"}
+                 alignItems={"center"}
+                 gap={{"2xl":"8px",sm:"6px"}}
                  background={submit?"gray.100":"blackAlpha.900"}
-                 borderRadius={{"2xl":"6px"}}
+                 borderRadius={"6px"}
                 
                 >
                     <Text
                     //textColor={"blackAlpha.400"}
                     textColor={submit? "blackAlpha.400":"white"}
                     fontFamily={"Inter"}
-                    fontSize={{"2xl":"14px"}}
+                    fontSize={{"2xl":"14px",sm:"10px"}}
                     fontStyle={"normal"}
                     fontWeight={600}
-                    lineHeight={{"2xl":"20px"}}
+                    lineHeight={{"2xl":"20px",sm:"auto"}}
                     >
                         Begin Import
                         </Text>
