@@ -33,8 +33,8 @@ const FileUpload: React.FC<FileUploadProps> = ({ onFileSelect }) => {
   
   
   const uploadFile = async () => {
-    console.log(pre)
-    console.log(file)
+    // console.log(pre)
+    // console.log(file)
     if (!pre || !file) {
       console.error('Presigned URL or file not available.');
       return;
