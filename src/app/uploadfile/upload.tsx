@@ -119,6 +119,7 @@ const FileUpload: React.FC<FileUploadProps> = ({ onFileSelect }) => {
           flexDirection={"column"}
           justifyContent={"center"}
           alignItems={"center"}
+          height={"auto"}
           >
             
             
