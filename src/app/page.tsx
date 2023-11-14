@@ -18,7 +18,7 @@ const Home = () => {
 
 
 <Box >
-{/*   
+  
   {step == 0 && (
      <Login/> 
   )}
@@ -34,10 +34,10 @@ const Home = () => {
    
     </Box>
 )}
- */}
 
- 
-<FileUpload/>
+
+
+{/* <FileUpload/> */}
 
 
 

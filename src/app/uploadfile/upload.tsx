@@ -1,7 +1,7 @@
 "use client"
-import axios from 'axios';
 
-import { Box, Button, FormControl, FormLabel, Input,Text,Image, } from '@chakra-ui/react';
+import axios, { AxiosResponse, AxiosProgressEvent } from 'axios';
+import { Box, Button, FormControl, FormLabel, Input,Text,Image, Progress } from '@chakra-ui/react';
 import { useRef, useState, ChangeEvent } from 'react';
 import {Valueone} from "../context/context"
 interface FileUploadProps {
@@ -13,6 +13,7 @@ const FileUpload: React.FC<FileUploadProps> = ({ onFileSelect }) => {
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   const {setSubmit,pre} = Valueone()
   const [file, setFile] = useState<File | null>(null);
+  const [uploadProgress, setUploadProgress] = useState<number>(0);
   const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
     const files = event.target.files;
     setSelectedFile(files?.[0] || null);
@@ -44,9 +45,15 @@ const FileUpload: React.FC<FileUploadProps> = ({ onFileSelect }) => {
         headers: {
           'Content-Type': 'text/plain', // Adjust the content type accordingly
         },
+        onUploadProgress: (progressEvent: AxiosProgressEvent) => {
+          const { loaded, total } : any = progressEvent;
+          const percentCompleted = Math.round((loaded * 100) / total);
+          setUploadProgress(percentCompleted);
+        },
       });
 
       console.log('File uploaded successfully!');
+      setUploadProgress(0);
     } catch (error) {
       console.error('Error uploading file:', error);
     }
@@ -176,6 +183,8 @@ const FileUpload: React.FC<FileUploadProps> = ({ onFileSelect }) => {
                             w={{"2xl":"12px"}} 
                             onClick={resetFileInput}/>
                         </Button>
+                        {uploadProgress > 0 && <Progress value={uploadProgress} mb={4} />}
+      {uploadProgress > 0 && <p>Upload Progress: {uploadProgress}%</p>}
                         </Box>
 
 
