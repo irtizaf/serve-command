@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import axios, { AxiosProgressEvent } from 'axios';
 import { Button, Container, Input } from '@chakra-ui/react';
+import { Progress } from '@chakra-ui/react'
 
 // const FileUpload = () => {
 //   const [file, setFile] = useState<File | null>(null);
@@ -145,6 +146,7 @@ const FileUpload = () => {
         Upload File
       </Button>
       {uploadProgress > 0 && <p>Upload Progress: {uploadProgress}%</p>}
+      <Progress value={uploadProgress} />
     </Container>
   );
 };
