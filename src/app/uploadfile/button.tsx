@@ -138,6 +138,10 @@ const FileUpload = () => {
         // }
         ,
       });
+      then((response: any) => {
+        // Handle the response
+        console.log("response ====>",response)
+      })
       
       console.log('File uploaded successfully!');
       //setUploadProgress(0); // Reset progress after successful upload
@@ -167,6 +171,10 @@ export default FileUpload;
 
 
 
+
+function then(arg0: (response: any) => void) {
+  throw new Error('Function not implemented.');
+}
 // ... (your other imports remain the same)
 
 // ... (your other imports remain the same)
