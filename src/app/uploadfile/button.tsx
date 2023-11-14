@@ -41,13 +41,16 @@ const FileUpload = () => {
     }
 
     try {
-      await axios.put(presignedUrl, file, {
+      const response = await axios.put(presignedUrl, file, {
         headers: {
           'Content-Type': 'text/plain', // Adjust the content type accordingly
         },
-      });
+        
+      }
+      );
 
       console.log('File uploaded successfully!');
+      console.log('Response from PUT request:', response);
     } catch (error) {
       console.error('Error uploading file:', error);
     }
