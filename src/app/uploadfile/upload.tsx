@@ -60,7 +60,8 @@ const FileUpload: React.FC<FileUploadProps> = ({ onFileSelect }) => {
   };
   
 
- if (uploadProgress == 1) {
+ if (isSubmitDisabled == false) {
+  console.log(isSubmitDisabled,"file uploaded")
   uploadFile()
 
  }
