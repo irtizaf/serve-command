@@ -119,28 +119,28 @@ const FileUpload = () => {
         headers: {
           'Content-Type': 'text/plain', // Adjust the content type accordingly
         },
-        // onUploadProgress: (progressEvent: AxiosProgressEvent) => {
-        //   const customProgressEvent:any = progressEvent as unknown as CustomAxiosProgressEvent;
-        //   if (customProgressEvent.lengthComputable) {
-        //     const percentCompleted = Math.round((customProgressEvent.loaded * 100) / customProgressEvent.total!);
-        //     setUploadProgress(percentCompleted);
-        //     console.log("value====",customProgressEvent)
-        //   }
-          
-        // }
-        onUploadProgress: (progressEvent: any) => {
-          const customProgressEvent = progressEvent.nativeEvent as CustomAxiosProgressEvent;
+        onUploadProgress: (progressEvent: AxiosProgressEvent) => {
+          const customProgressEvent:any = progressEvent as unknown as CustomAxiosProgressEvent;
           if (customProgressEvent.lengthComputable) {
             const percentCompleted = Math.round((customProgressEvent.loaded * 100) / customProgressEvent.total!);
             setUploadProgress(percentCompleted);
             console.log("value====",customProgressEvent)
           }
+          
         }
+        // onUploadProgress: (progressEvent: any) => {
+        //   const customProgressEvent = progressEvent.nativeEvent as CustomAxiosProgressEvent;
+        //   if (customProgressEvent.lengthComputable) {
+        //     const percentCompleted = Math.round((customProgressEvent.loaded * 100) / customProgressEvent.total!);
+        //     setUploadProgress(percentCompleted);
+        //     console.log("value====",customProgressEvent)
+        //   }
+        // }
         ,
       });
       
       console.log('File uploaded successfully!');
-      setUploadProgress(0); // Reset progress after successful upload
+      //setUploadProgress(0); // Reset progress after successful upload
     } catch (error) {
       console.error('Error uploading file:', error);
     }
@@ -163,3 +163,12 @@ console.log( "uploading progress",uploadProgress)
 };
 
 export default FileUpload;
+
+
+
+
+// ... (your other imports remain the same)
+
+// ... (your other imports remain the same)
+
+
