@@ -120,11 +120,13 @@ const FileUpload = () => {
           'Content-Type': 'text/plain', // Adjust the content type accordingly
         },
         onUploadProgress: (progressEvent: AxiosProgressEvent) => {
-          const customProgressEvent = progressEvent as unknown as CustomAxiosProgressEvent;
+          const customProgressEvent:any = progressEvent as unknown as CustomAxiosProgressEvent;
           if (customProgressEvent.lengthComputable) {
             const percentCompleted = Math.round((customProgressEvent.loaded * 100) / customProgressEvent.total!);
             setUploadProgress(percentCompleted);
+            console.log("value====",customProgressEvent)
           }
+          
         },
       });
 
