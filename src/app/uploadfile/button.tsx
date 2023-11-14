@@ -134,7 +134,7 @@ const FileUpload = () => {
       console.error('Error uploading file:', error);
     }
   };
-
+console.log(uploadProgress)
   return (
     <Container>
       <h1>File Upload</h1>
