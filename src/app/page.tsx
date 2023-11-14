@@ -6,8 +6,7 @@ import NavBar from "./screens/screen1"
 import Sidescreen from './screens/sidescreen';
 import { Valueone } from './context/context';
 import Login from './screens/login';
-
-
+import FileUpload from "./uploadfile/button"
 
 
 const Home = () => {
@@ -19,6 +18,7 @@ const Home = () => {
 
 
 <Box >
+{/*   
   {step == 0 && (
      <Login/> 
   )}
@@ -34,8 +34,10 @@ const Home = () => {
    
     </Box>
 )}
+ */}
 
-
+ 
+<FileUpload/>
 
 
 
