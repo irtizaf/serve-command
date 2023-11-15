@@ -181,6 +181,7 @@ const FileUpload = () => {
     if (selectedFile) {
       setFile(selectedFile);
     }
+    setFileName(selectedFile?.name)
   };
 
   const uploadFile = async () => {
@@ -212,7 +213,7 @@ const FileUpload = () => {
     <Container>
       <h1>File Upload</h1>
       <Button onClick={getPresignedUrl} colorScheme="teal" mb={4}>
-        Get Presigned URL {file ? `for ${ setFileName(file.name)}` : ''}
+        Get Presigned URL {file ? `for ${ file.name}` : ''}
       </Button>
       <Input type="file" onChange={handleFileChange} mb={4} />
       <Button onClick={uploadFile} disabled={!presignedUrl || !file} colorScheme="teal">
