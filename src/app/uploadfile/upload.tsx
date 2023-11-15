@@ -190,7 +190,7 @@ const FileUpload: React.FC<FileUploadProps> = ({ onFileSelect }) => {
                             onClick={resetFileInput}/>
                         </Button>
                         {uploadProgress > 0 && <Progress value={uploadProgress} mb={4} />}
-      {uploadProgress > 0 && <p>Upload Progress: {uploadProgress}%</p>}
+                        {uploadProgress > 0 && <p>Upload Progress: {uploadProgress}%</p>}
                         </Box>
 
 
