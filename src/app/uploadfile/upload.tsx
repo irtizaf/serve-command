@@ -56,7 +56,7 @@ const FileUpload: React.FC<FileUploadProps> = ({ onFileSelect }) => {
       });
 
       console.log('File uploaded successfully!');
-      setUploadProgress(0);
+      //setUploadProgress(0);
     } catch (error) {
       console.error('Error uploading file:', error);
     }
