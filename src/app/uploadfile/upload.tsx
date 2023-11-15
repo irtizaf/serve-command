@@ -20,7 +20,9 @@ const FileUpload: React.FC<FileUploadProps> = ({ onFileSelect }) => {
     onFileSelect(files?.[0] || null);
     setFile(files?.[0] || null)
     
-    return true
+    const isSubmitDisabled = !selectedFile;
+    setSubmit(isSubmitDisabled)
+    
     //setPresignedUrl(pre)
   };
 
@@ -28,8 +30,7 @@ const FileUpload: React.FC<FileUploadProps> = ({ onFileSelect }) => {
     setSelectedFile(null);
     onFileSelect(null);
   };
-  const isSubmitDisabled = !selectedFile;
-  setSubmit(isSubmitDisabled)
+  
   
   
   
@@ -62,8 +63,8 @@ const FileUpload: React.FC<FileUploadProps> = ({ onFileSelect }) => {
   
   
 
- if (selectedFile) {
-  console.log(isSubmitDisabled,"file uploaded")
+ if (!selectedFile == false) {
+  console.log(selectedFile,"file uploaded")
   uploadFile()
 
  }
