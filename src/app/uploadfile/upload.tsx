@@ -11,7 +11,7 @@ interface FileUploadProps {
 const FileUpload: React.FC<FileUploadProps> = ({ onFileSelect }) => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
-  const {setSubmit,pre} = Valueone()
+  const {setSubmit,pre,setPre, setFileName} = Valueone()
   const [file, setFile] = useState<File | null>(null);
   const [uploadProgress, setUploadProgress] = useState<number>(0);
 
@@ -70,6 +70,8 @@ const FileUpload: React.FC<FileUploadProps> = ({ onFileSelect }) => {
 
  }
 
+  const namefile = selectedFile?.name
+   setFileName(namefile)
   
   return (
     <Box>
@@ -181,7 +183,7 @@ const FileUpload: React.FC<FileUploadProps> = ({ onFileSelect }) => {
                             fontWeight={600}
                             lineHeight={{"2xl":"16px",sm:"auto"}}
                             >
-                            {selectedFile.name}{' '}
+                            { selectedFile.name}{' '}
                             
                             </Text>
                             <Image src='/right-icon (1).svg' 
