@@ -7,6 +7,9 @@ import Sidescreen from './screens/sidescreen';
 import { Valueone } from './context/context';
 import Login from './screens/login';
 import FileUpload from "./uploadfile/button"
+import Reset from './screens/reset';
+import Resetcode from './screens/resetCode';
+import NewPass from './screens/newpassword';
 
 
 const Home = () => {
@@ -37,11 +40,12 @@ const Home = () => {
 
 
 
-<FileUpload/>
+
+{/* <FileUpload/> */}
 
 
 
-  
+  <Login />
 </Box>
   );
 };

@@ -12,6 +12,11 @@ interface ContextProps {
   setPre:Dispatch<SetStateAction<string>>
   fileName:File | null | String |undefined
   setFileName: Dispatch<SetStateAction<File | null | String |undefined >> 
+  username:string
+  setUsername:Dispatch<SetStateAction<string>>
+  verificationCode:string
+  setVerificationCode:Dispatch<SetStateAction<string>>
+
 }
 
 const initialContext: ContextProps = {
@@ -22,7 +27,13 @@ const initialContext: ContextProps = {
   pre: "",
   setPre:() => {},
   fileName: null,
-  setFileName: () => {null}
+  setFileName: () => {null},
+  username:"",
+  setUsername:() => {null},
+  verificationCode:"",
+  setVerificationCode:() => {null}
+
+
 
   
 };
@@ -34,13 +45,15 @@ export default function Context({ children }: { children: ReactNode }) {
   const [step,setStep] = useState(0)
   const [pre,setPre] = useState("")
   const [fileName, setFileName] = useState<File | null| String | undefined >(null);
+  const [username, setUsername] = useState('')
+  const [verificationCode, setVerificationCode] = useState('');
   //const [fileone,setFileone] = useState<File | null>(null)
 
 
   //const safeSetFileone = setFileone!;
 
   return (
-    <ValueContext.Provider value={{ submit, setSubmit,step,setStep,pre,setPre,fileName, setFileName}}>
+    <ValueContext.Provider value={{ submit, setSubmit,step,setStep,pre,setPre,fileName, setFileName,username, setUsername,verificationCode, setVerificationCode}}>
       {children}
     </ValueContext.Provider>
   );
