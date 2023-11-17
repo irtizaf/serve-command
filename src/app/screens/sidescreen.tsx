@@ -6,13 +6,13 @@ import axios from 'axios';
 import { useState } from 'react'
 
 const Sidescreen = () => {
-    const {setSubmit,setPre,pre} = Valueone()
+    const {setSubmit,setPre,pre,fileName} = Valueone()
     const [presignedUrl, setPresignedUrl] = useState<string | null>(null);
 
     const getPresignedUrl = async () => {
         try {
           const response = await axios.get(
-            'https://zp2dhmgwaa.execute-api.us-east-1.amazonaws.com/generatepresignedurl?fileName=dummydata.txt&contentType=text/plain',
+            `https://zp2dhmgwaa.execute-api.us-east-1.amazonaws.com/generatepresignedurl?fileName=${fileName}&contentType=text/plain`,
             // {
             //   params: {
             //     fileName: 'dummydata.txt',
