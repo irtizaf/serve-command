@@ -14,7 +14,7 @@ import {
 
 
 const Reset = () => {
-    const {setStep,username, setUsername} = Valueone()
+    const {username, setUsername,setStep} = Valueone()
    
 
     const handleForgotPassword = async () => {
@@ -29,6 +29,7 @@ const Reset = () => {
           await client.send(forgotPasswordCommand);
           // Successful initiation of forgot password process
           //setShowForgotPasswordForm(true);
+          setStep(2)
         } catch (error) {
           console.error('Forgot password initiation failed', error);
           // Handle error, e.g., display an error message

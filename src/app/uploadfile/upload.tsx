@@ -4,6 +4,7 @@ import axios, { AxiosResponse, AxiosProgressEvent } from 'axios';
 import { Box, Button, FormControl, FormLabel, Input,Text,Image, Progress } from '@chakra-ui/react';
 import { useRef, useState, ChangeEvent } from 'react';
 import {Valueone} from "../context/context"
+
 interface FileUploadProps {
   onFileSelect: (file: File | null) => void;
 }
@@ -11,9 +12,9 @@ interface FileUploadProps {
 const FileUpload: React.FC<FileUploadProps> = ({ onFileSelect }) => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
-  const {setSubmit,pre,setPre, setFileName} = Valueone()
+  const {setSubmit,pre,setFileName,uploadProgress, setUploadProgress,setOpen,setIsOpen1} = Valueone()
   const [file, setFile] = useState<File | null>(null);
-  const [uploadProgress, setUploadProgress] = useState<number>(0);
+  // const [uploadProgress, setUploadProgress] = useState<number>(0);
 
   const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
     const files = event.target.files;
@@ -67,6 +68,9 @@ const FileUpload: React.FC<FileUploadProps> = ({ onFileSelect }) => {
  if (!selectedFile == false && uploadProgress <= 0 ) {
   console.log(selectedFile,"file uploaded")
   uploadFile()
+  setOpen(false)
+  
+  
 
  }
 

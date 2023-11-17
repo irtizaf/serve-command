@@ -16,7 +16,12 @@ interface ContextProps {
   setUsername:Dispatch<SetStateAction<string>>
   verificationCode:string
   setVerificationCode:Dispatch<SetStateAction<string>>
-
+  uploadProgress:number
+  setUploadProgress:Dispatch<SetStateAction<number>>
+  open:boolean
+  setOpen:Dispatch<SetStateAction<boolean>>
+  isOpen1:boolean
+  setIsOpen1:Dispatch<SetStateAction<boolean>>
 }
 
 const initialContext: ContextProps = {
@@ -31,7 +36,13 @@ const initialContext: ContextProps = {
   username:"",
   setUsername:() => {null},
   verificationCode:"",
-  setVerificationCode:() => {null}
+  setVerificationCode:() => {null},
+  uploadProgress:0,
+  setUploadProgress:() => {null},
+  open:true,
+  setOpen:() => {null},
+  isOpen1: false,
+  setIsOpen1:() => {null}
 
 
 
@@ -47,13 +58,16 @@ export default function Context({ children }: { children: ReactNode }) {
   const [fileName, setFileName] = useState<File | null| String | undefined >(null);
   const [username, setUsername] = useState('')
   const [verificationCode, setVerificationCode] = useState('');
+  const [uploadProgress, setUploadProgress] = useState<number>(0);
+  const [open, setOpen] = useState(true);
+  const [isOpen1, setIsOpen1] = useState(false)
   //const [fileone,setFileone] = useState<File | null>(null)
 
 
   //const safeSetFileone = setFileone!;
 
   return (
-    <ValueContext.Provider value={{ submit, setSubmit,step,setStep,pre,setPre,fileName, setFileName,username, setUsername,verificationCode, setVerificationCode}}>
+    <ValueContext.Provider value={{ submit, setSubmit,step,setStep,pre,setPre,fileName, setFileName,username, setUsername,verificationCode, setVerificationCode,uploadProgress, setUploadProgress,open, setOpen,isOpen1, setIsOpen1 }}>
       {children}
     </ValueContext.Provider>
   );

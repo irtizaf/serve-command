@@ -1,6 +1,6 @@
 // pages/index.js
 "use client"
-import { Box } from '@chakra-ui/react';
+import { Box, Progress } from '@chakra-ui/react';
 import React from 'react';
 import NavBar from "./screens/screen1"
 import Sidescreen from './screens/sidescreen';
@@ -10,6 +10,8 @@ import FileUpload from "./uploadfile/button"
 import Reset from './screens/reset';
 import Resetcode from './screens/resetCode';
 import NewPass from './screens/newpassword';
+import LoginWithPasswordChangeAndForgot from './uploadfile/cognito';
+import Progressbar from './screens/progressbar';
 
 
 const Home = () => {
@@ -25,10 +27,17 @@ const Home = () => {
   {/* {step == 0 && (
      <Login/> 
   )}
- 
+  {step == 1 && (
+     <Reset/> 
+  )}
+  {step == 2 && (
+     <Resetcode/> 
+  )}
+ {step == 3 && (
+     <NewPass/> 
+  )}  */}
 
-
-   { step == 2 && ( <Box 
+   {/* { step == 2 && ( <Box 
     display={"flex"}>
 <NavBar/>
 <Sidescreen/>
@@ -37,15 +46,28 @@ const Home = () => {
    
     </Box>
 )} */}
+ {/* <Resetcode/>  */}
+<Box 
+    display={"flex"}>
+<NavBar/>
+<Sidescreen/>
 
 
+   
+    </Box>
+    
+{/* <Progressbar/> */}
 
 
-{/* <FileUpload/> */}
+{/* <FileUpload/>
 
 
+{/* <NewPass/> */}
+  {/* <Login /> */}
 
-  <Login />
+  {/* <LoginWithPasswordChangeAndForgot/> */}
+
+  {/* <Progress colorScheme='blue' w={"144px"}  hasStripe  value={90}/> */}
 </Box>
   );
 };

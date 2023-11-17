@@ -11,90 +11,93 @@ import {
 
 
 const NewPass = () => {
-  const {setStep} = Valueone()
-  const [username, setUsername] = useState('');
+  const {setStep, username } = Valueone()
+  
   const [password, setPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [showPasswordChangeForm, setShowPasswordChangeForm] = useState(false);
   const [session, setSession] = useState('');
   const [verificationCode, setVerificationCode] = useState('');
-  const [showForgotPasswordForm, setShowForgotPasswordForm] = useState(false);
+  const [show, setShow] = useState(false);
 
-  const handleLogin = async () => {
-    const client = new CognitoIdentityProviderClient({ region: 'us-east-1' });
+  // const handleLogin = async () => {
+  //   const client = new CognitoIdentityProviderClient({ region: 'us-east-1' });
 
-    const initiateAuthCommand = new InitiateAuthCommand({
-      AuthFlow: 'USER_PASSWORD_AUTH',
-      ClientId: '1727702mdj4021tmc218s3efab',
-      AuthParameters: {
-        USERNAME: username,
-        PASSWORD: password,
-      },
-    });
+  //   const initiateAuthCommand = new InitiateAuthCommand({
+  //     AuthFlow: 'USER_PASSWORD_AUTH',
+  //     ClientId: '1727702mdj4021tmc218s3efab',
+  //     AuthParameters: {
+  //       USERNAME: username,
+  //       PASSWORD: password,
+  //     },
+  //   });
 
-    try {
-      const initiateAuthResponse:any = await client.send(initiateAuthCommand);
+  //   try {
+  //     const initiateAuthResponse:any = await client.send(initiateAuthCommand);
 
-      if (initiateAuthResponse.ChallengeName === 'NEW_PASSWORD_REQUIRED') {
-        // User needs to set a new password
-        console.log('User needs to set a new password', initiateAuthResponse);
-        setSession(initiateAuthResponse.Session);
-        setShowPasswordChangeForm(true);
-      } else {
-        // Authentication successful
-        console.log('Authentication successful', initiateAuthResponse);
-        setStep(2)
+  //     if (initiateAuthResponse.ChallengeName === 'NEW_PASSWORD_REQUIRED') {
+  //       // User needs to set a new password
+  //       console.log('User needs to set a new password', initiateAuthResponse);
+  //       setSession(initiateAuthResponse.Session);
+  //       setShowPasswordChangeForm(true);
+  //     } else {
+  //       // Authentication successful
+  //       console.log('Authentication successful', initiateAuthResponse);
+  //       setStep(2)
         
-        // Redirect or perform any additional actions upon successful login
-      }
-    } catch (error) {
-      console.error('Authentication failed', error);
+  //       // Redirect or perform any additional actions upon successful login
+  //     }
+  //   } catch (error) {
+  //     console.error('Authentication failed', error);
 
-      // Handle error, e.g., display an error message
-    }
-  };
+  //     // Handle error, e.g., display an error message
+  //   }
+  // };
 
-  const handleChangePassword = async () => {
-    const client = new CognitoIdentityProviderClient({ region: 'us-east-1' });
+  // const handleChangePassword = async () => {
+  //   const client = new CognitoIdentityProviderClient({ region: 'us-east-1' });
 
-    const respondToAuthChallengeCommand = new RespondToAuthChallengeCommand({
-      ClientId: '1727702mdj4021tmc218s3efab',
-      ChallengeName: 'NEW_PASSWORD_REQUIRED',
-      Session: session,
-      ChallengeResponses: {
-        USERNAME: username,
-        NEW_PASSWORD: newPassword,
-      },
-    });
+  //   const respondToAuthChallengeCommand = new RespondToAuthChallengeCommand({
+  //     ClientId: '1727702mdj4021tmc218s3efab',
+  //     ChallengeName: 'NEW_PASSWORD_REQUIRED',
+  //     Session: session,
+  //     ChallengeResponses: {
+  //       USERNAME: username,
+  //       NEW_PASSWORD: newPassword,
+  //     },
+  //   });
 
-    try {
-      const respondToAuthChallengeResponse = await client.send(respondToAuthChallengeCommand);
-      console.log('Password change response:', respondToAuthChallengeResponse);
+  //   try {
+  //     const respondToAuthChallengeResponse = await client.send(respondToAuthChallengeCommand);
+  //     console.log('Password change response:', respondToAuthChallengeResponse);
 
-      // You can handle the response accordingly, e.g., show a success message
-    } catch (error) {
-      console.error('Password change failed', error);
-      // Handle error, e.g., display an error message
-    }
-  };
+  //     // You can handle the response accordingly, e.g., show a success message
+  //   } catch (error) {
+  //     console.error('Password change failed', error);
+  //     // Handle error, e.g., display an error message
+  //   }
+  // };
 
-  const handleForgotPassword = async () => {
-    const client = new CognitoIdentityProviderClient({ region: 'us-east-1' });
+  // const handleForgotPassword = async () => {
+  //   const client = new CognitoIdentityProviderClient({ region: 'us-east-1' });
 
-    const forgotPasswordCommand = new ForgotPasswordCommand({
-      ClientId: '1727702mdj4021tmc218s3efab',
-      Username: username,
-    });
+  //   const forgotPasswordCommand = new ForgotPasswordCommand({
+  //     ClientId: '1727702mdj4021tmc218s3efab',
+  //     Username: username,
+  //   });
 
-    try {
-      await client.send(forgotPasswordCommand);
-      // Successful initiation of forgot password process
-      setShowForgotPasswordForm(true);
-    } catch (error) {
-      console.error('Forgot password initiation failed', error);
-      // Handle error, e.g., display an error message
-    }
-  };
+  //   try {
+  //     await client.send(forgotPasswordCommand);
+  //     // Successful initiation of forgot password process
+  //     setShowForgotPasswordForm(true);
+  //   } catch (error) {
+  //     console.error('Forgot password initiation failed', error);
+  //     // Handle error, e.g., display an error message
+  //   }
+  // };
+
+
+ 
 
   const handleConfirmForgotPassword = async () => {
     const client = new CognitoIdentityProviderClient({ region: 'us-east-1' });
@@ -113,8 +116,25 @@ const NewPass = () => {
     } catch (error) {
       console.error('Password reset failed', error);
       // Handle error, e.g., display an error message
+    }};
+
+  const confirnPass = () => {
+
+    if (password == newPassword){
+      console.log("your new password is",newPassword)
+      handleConfirmForgotPassword()
+  
     }
-  };
+    else {
+      console.log("error reenter the password")
+      setShow(true)
+    }
+
+
+  }
+
+
+    
 
 
   return (
@@ -235,7 +255,7 @@ const NewPass = () => {
             justifyContent={"center"}
             alignItems={"center"}
             gap={{ "2xl":"10px",xl:"10px",lg:"8px",sm:"4px"}}
-            placeholder='Enter your phone number'
+            placeholder='Enter new password'
             py={{sm:"5px"}}
             px={{xl:"16px",lg:"14px",sm:"7px"}}
             flex={"1 0 0"}
@@ -248,8 +268,8 @@ const NewPass = () => {
             fontStyle={"normal"}
             fontWeight={400}
             lineHeight={"normal"}
-            value={username}
-          onChange={(e) => setUsername(e.target.value)}
+            value={password}
+          onChange={(e) => setPassword(e.target.value)}
             />
           </Box>
           <Box
@@ -282,13 +302,13 @@ const NewPass = () => {
             justifyContent={"center"}
             alignItems={"center"}
             gap={{ "2xl":"10px",xl:"10px",lg:"8px",sm:"4px"}}
-            placeholder='••••••••
+            placeholder='Confirm password
             '
             px={{"2xl":"16px",xl:"16px",lg:"14px",sm:"7px"}}
             py={{sm:"5px"}}
             flex={"1 0 0"}
             borderRadius={"4px"}
-            border={"1px solid var(--gray-200, #E2E8F0)"}
+            border={ show?"2px solid var(--red-500, #E53E3E)" : "1px solid var(--gray-200, #E2E8F0)"}
             background={"white"}
             textColor={"#A0AEC0"}
             fontFamily={"Inter"}
@@ -296,9 +316,20 @@ const NewPass = () => {
             fontStyle={"normal"}
             fontWeight={400}
             lineHeight={"normal"}
-            value={password}
-          onChange={(e) => setPassword(e.target.value)}
+            value={newPassword}
+          onChange={(e) => setNewPassword(e.target.value)}
             />
+            {show && <Text
+            h={{"2xl":"16px"}}
+            alignSelf={"stretch"}
+            textColor={"var(--red-500, #E53E3E)"}
+            fontFamily={"Inter"}
+            fontSize={{"2xl":"12px"}}
+            fontStyle={"normal"}
+            fontWeight={400}
+            lineHeight={{"2xl":"16px"}}
+            >
+              Password does not match</Text>}
           </Box>
         </Box>   
 
@@ -317,7 +348,7 @@ const NewPass = () => {
             borderRadius={"6px"}
             background={"#11190C"}
             w={{ "2xl":"360px",xl:"360px",lg:"250px",sm:"200px"}}
-            onClick={handleLogin}
+            onClick={confirnPass}
             >
               <Text
               w={{ "2xl":"auto",xl:"auto",lg:"auto",sm:"auto"}}
@@ -339,7 +370,7 @@ const NewPass = () => {
         
       </Box>
 
-      {showPasswordChangeForm && (
+      {/* {showPasswordChangeForm && (
         <>
           <Box>
             <Input
@@ -374,7 +405,7 @@ const NewPass = () => {
         </>
       ) : (
         <Button onClick={handleForgotPassword}>Forgot Password</Button>
-      )}
+      )} */}
     </Box>
   )
 }

@@ -1,6 +1,8 @@
 "use client"
-import { Box,Text,Image, Button, useDisclosure } from '@chakra-ui/react'
+import { Box,Text,Image, Button, useDisclosure,Progress } from '@chakra-ui/react'
 import {Valueone} from "../context/context"
+import { useState } from 'react'
+import Progressbar from "./progressbar"
 
 
 
@@ -18,10 +20,10 @@ import FileUpload from '../uploadfile/upload'
 
 const Screen2 = () => {
     
-
+    
     const { isOpen, onOpen, onClose } = useDisclosure()
     const cancelRef:any = React.useRef()
-    const {submit} = Valueone()
+    const {submit,uploadProgress,open, setOpen,setIsOpen1,isOpen1} = Valueone()
     const handleFileSelect = (file: File | null) => {
         if (file) {
           // Handle the selected file
@@ -31,6 +33,12 @@ const Screen2 = () => {
           console.log('File reset');
         }
       };
+
+    if (uploadProgress == 100) {
+        setIsOpen1(true)
+
+    }
+      console.log(isOpen1,"======",uploadProgress)
   return (
     <>
     <Button onClick={onOpen} h={"auto"}>
@@ -73,8 +81,11 @@ const Screen2 = () => {
       >
         <AlertDialogOverlay />
 
-    <AlertDialogContent w={{sm:"90%","2xl":"auto",xl:"auto",lg:"auto",md:"auto"}}>
+    <AlertDialogContent >
     
+    {
+     open ?
+     <AlertDialogContent w={{sm:"90%","2xl":"auto",xl:"auto",lg:"auto",md:"auto"}}>
     <Box
     // w={{"2xl":"1920px"}}
     // h={{"2xl":"1080px"}}
@@ -356,7 +367,7 @@ const Screen2 = () => {
                             </Text>
                             <Image src='/right-icon (1).svg' height={{"2xl":"12px"}} w={{"2xl":"12px"}}/>
                         </Button> */}
-                        <FileUpload onFileSelect={handleFileSelect}/>
+                         <FileUpload onFileSelect={handleFileSelect}/>
 
                     </Box>
                 </Box>
@@ -420,6 +431,95 @@ const Screen2 = () => {
         </Box>    
     </Box>
     </AlertDialogContent>
+    :
+    
+    <AlertDialogContent w={{"2xl":"432px"}}
+        
+    borderRadius={"24px"}>
+<>
+{isOpen1?
+  <Box>
+    <Progressbar/> 
+
+
+
+</Box>
+
+    
+    : <Box>
+        
+         
+         <Box
+    display={"flex"}
+    justifyContent={"center"}
+    flexDirection={"column"}
+    alignItems={"center"}
+    // h={{"2xl":"1080px"}}
+    // w={{"2xl":"1920px"}}
+    >
+        <Box
+        display={"flex"}
+        w={{"2xl":"432px"}}
+        flexDirection={"column"}
+        alignItems={"flex-start"}
+        gap={{"2xl":"32px"}}
+        borderRadius={"24px"}
+        background={"var(--white-100, #FFF)"}
+        boxShadow={"0px 24px 48px 0px rgba(90, 91, 106, 0.08), 0px 12px 24px 0px rgba(58, 58, 68, 0.08)"}
+        p={{"2xl":"32px"}}
+        >
+           <Box
+           display={"flex"}
+           flexDirection={"column"}
+           justifyContent={"center"}
+           alignItems={"center"}
+           alignSelf={"stretch"}
+           >
+            <Text
+            textColor={"var(--gray-100, #19191D)"}
+            fontFamily={"Inter"}
+            fontSize={{"2xl":"20px"}}
+            fontStyle={"normal"}
+            fontWeight={600}
+            lineHeight={{"2xl":"28px"}}
+            >
+            Import in Progress...
+            </Text>
+
+            <Progress value={90}/>
+
+            </Box>
+            <Box
+            w={{"2xl":"368px"}}
+            h={{"2xl":"8px"}}
+            flexShrink={0}
+            borderRadius={"4px"}
+            background={"var(--primary-states-hover, rgba(17, 25, 12, 0.04))"}
+            >
+            <Progress 
+            w={"100%"}
+            h={{"2xl":"8px"}}
+            flexShrink={0}
+            borderRadius={"4px"}
+             
+            value={uploadProgress}
+            colorScheme={"blackAlpha"}
+           
+            />
+            
+            </Box>
+            
+        </Box>
+        
+    </Box>
+    </Box>
+    }
+</>
+
+</AlertDialogContent>
+}
+    </AlertDialogContent>
+    
     </AlertDialog>
     </>
   )
@@ -427,6 +527,4 @@ const Screen2 = () => {
 
 export default Screen2
 
-// function value(): { submit: any } {
-//     throw new Error('Function not implemented.')
-// }
+

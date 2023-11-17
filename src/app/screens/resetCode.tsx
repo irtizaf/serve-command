@@ -26,6 +26,7 @@ const Resetcode = () => {
           await client.send(forgotPasswordCommand);
           // Successful initiation of forgot password process
           //setShowForgotPasswordForm(true);
+          
         } catch (error) {
           console.error('Forgot password initiation failed', error);
           // Handle error, e.g., display an error message
@@ -100,7 +101,7 @@ const Resetcode = () => {
                     w={"100%"}
                     h={"auto"}
                     >
-                  <Text>Code sent to: 914-497-6340</Text>  
+                  <Text>Code sent to:<strong>{username}</strong> </Text>  
                   <br/>
 
 
@@ -314,6 +315,7 @@ const Resetcode = () => {
                     alignSelf={"stretch"}
                     borderRadius={"6px"}
                     background={"var(--primary-main, #11190C)"}
+                    onClick={() => setStep(3)}
                     >
                         <Text
                         textColor={"white"}

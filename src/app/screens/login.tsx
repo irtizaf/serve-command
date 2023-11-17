@@ -394,8 +394,8 @@ import {
 
 
 const Login = () => {
-  const {setStep} = Valueone()
-  const [username, setUsername] = useState('');
+  const {setStep,username,setUsername} = Valueone()
+  
   const [password, setPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [showPasswordChangeForm, setShowPasswordChangeForm] = useState(false);
@@ -426,7 +426,7 @@ const Login = () => {
       } else {
         // Authentication successful
         console.log('Authentication successful', initiateAuthResponse);
-        setStep(2)
+        //setStep(2)
         
         // Redirect or perform any additional actions upon successful login
       }
@@ -464,6 +464,7 @@ const Login = () => {
   const handleForgotPassword = async () => {
     const client = new CognitoIdentityProviderClient({ region: 'us-east-1' });
 
+
     const forgotPasswordCommand = new ForgotPasswordCommand({
       ClientId: '1727702mdj4021tmc218s3efab',
       Username: username,
@@ -473,6 +474,7 @@ const Login = () => {
       await client.send(forgotPasswordCommand);
       // Successful initiation of forgot password process
       setShowForgotPasswordForm(true);
+      setStep(1)
     } catch (error) {
       console.error('Forgot password initiation failed', error);
       // Handle error, e.g., display an error message
@@ -697,7 +699,7 @@ const Login = () => {
             alignItems={"center"}
             gap={{"2xl":"6px"}}
             borderRadius={"6px"}
-            onClick={handleForgotPassword}
+            onClick={()=> setStep(1)}
             >
               <Text
               textColor={"var(--primary-main, #11190C)"}
@@ -745,7 +747,7 @@ const Login = () => {
 
       </Box>
 
-      {showPasswordChangeForm && (
+      {/* {showPasswordChangeForm && (
         <>
           <Box>
             <Input
@@ -780,7 +782,7 @@ const Login = () => {
         </>
       ) : (
         <Button onClick={handleForgotPassword}>Forgot Password</Button>
-      )}
+      )} */}
 
 
     </Box>
