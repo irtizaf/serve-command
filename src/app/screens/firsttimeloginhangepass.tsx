@@ -9,7 +9,7 @@ import {
   ConfirmForgotPasswordCommand,
 } from "@aws-sdk/client-cognito-identity-provider";
 
-const NewPass = () => {
+const FirstTimeNewPass = () => {
   const { setStep, username } = Valueone();
 
   const [password, setPassword] = useState("");
@@ -19,32 +19,37 @@ const NewPass = () => {
   const [verificationCode, setVerificationCode] = useState("");
   const [show, setShow] = useState(false);
 
-  const handleConfirmForgotPassword = async () => {
+  const handleChangePassword = async () => {
     const client = new CognitoIdentityProviderClient({ region: "us-east-1" });
 
-    const confirmForgotPasswordCommand = new ConfirmForgotPasswordCommand({
+    const respondToAuthChallengeCommand = new RespondToAuthChallengeCommand({
       ClientId: "1727702mdj4021tmc218s3efab",
-      Username: username,
-      ConfirmationCode: verificationCode,
-      Password: newPassword,
+      ChallengeName: "NEW_PASSWORD_REQUIRED",
+      Session: session,
+      ChallengeResponses: {
+        USERNAME: username,
+        NEW_PASSWORD: newPassword,
+      },
     });
 
     try {
-      await client.send(confirmForgotPasswordCommand);
-      // Successful confirmation of forgot password
-      console.log("Password reset successful");
+      const respondToAuthChallengeResponse = await client.send(
+        respondToAuthChallengeCommand
+      );
+      console.log("Password change response:", respondToAuthChallengeResponse);
+
+      // You can handle the response accordingly, e.g., show a success message
     } catch (error) {
-      console.error("Password reset failed", error);
+      console.error("Password change failed", error);
       // Handle error, e.g., display an error message
     }
   };
 
-  const confirnPass = () => {
-    if (password == newPassword) {
-      console.log("your new password is", newPassword);
-      handleConfirmForgotPassword();
+  const firstTimeChangePass = () => {
+    if (newPassword == password) {
+      handleChangePassword();
     } else {
-      console.log("error reenter the password");
+      console.log("password dont match");
       setShow(true);
     }
   };
@@ -178,6 +183,7 @@ const NewPass = () => {
 
               <Input
                 display={"flex"}
+                type="password"
                 h={{ "2xl": "40px", xl: "40px", lg: "auto", sm: "auto" }}
                 flexDirection={"column"}
                 justifyContent={"center"}
@@ -240,7 +246,8 @@ const NewPass = () => {
                 justifyContent={"center"}
                 alignItems={"center"}
                 gap={{ "2xl": "10px", xl: "10px", lg: "8px", sm: "4px" }}
-                placeholder="Confirm password"
+                placeholder="Confirm password
+            "
                 px={{ "2xl": "16px", xl: "16px", lg: "14px", sm: "7px" }}
                 py={{ sm: "5px" }}
                 flex={"1 0 0"}
@@ -291,7 +298,7 @@ const NewPass = () => {
               borderRadius={"6px"}
               background={"#11190C"}
               w={{ "2xl": "360px", xl: "360px", lg: "250px", sm: "200px" }}
-              onClick={confirnPass}
+              onClick={firstTimeChangePass}
             >
               <Text
                 w={{ "2xl": "auto", xl: "auto", lg: "auto", sm: "auto" }}
@@ -318,4 +325,4 @@ const NewPass = () => {
   );
 };
 
-export default NewPass;
+export default FirstTimeNewPass;

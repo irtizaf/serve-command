@@ -1,30 +1,29 @@
 // pages/index.js
-"use client"
-import { Box, Progress } from '@chakra-ui/react';
-import React from 'react';
-import NavBar from "./screens/screen1"
-import Sidescreen from './screens/sidescreen';
-import { Valueone } from './context/context';
-import Login from './screens/login';
-import FileUpload from "./uploadfile/button"
-import Reset from './screens/reset';
-import Resetcode from './screens/resetCode';
-import NewPass from './screens/newpassword';
-import LoginWithPasswordChangeAndForgot from './uploadfile/cognito';
-import Progressbar from './screens/progressbar';
-
+"use client";
+import { Box, Progress } from "@chakra-ui/react";
+import React from "react";
+import NavBar from "./screens/screen1";
+import Sidescreen from "./screens/sidescreen";
+import { Valueone } from "./context/context";
+import Login from "./screens/login";
+import FileUpload from "./uploadfile/button";
+import Reset from "./screens/reset";
+import Resetcode from "./screens/resetCode";
+import NewPass from "./screens/newpassword";
+import LoginWithPasswordChangeAndForgot from "./uploadfile/cognito";
+import Progressbar from "./screens/progressbar";
+import FirstTimeNewPass from "./screens/firsttimeloginhangepass";
+import ConfirmMaping from "./screens/confirmMaping";
 
 const Home = () => {
-  const {step} = Valueone()
- 
-  console.log(step)
+  const { step } = Valueone();
+
+  console.log(step);
   return (
-    
+    <Box>
+      {/* <Login/> */}
 
-
-<Box >
-  
-  {/* {step == 0 && (
+      {/* {step == 0 && (
      <Login/> 
   )}
   {step == 1 && (
@@ -35,40 +34,39 @@ const Home = () => {
   )}
  {step == 3 && (
      <NewPass/> 
-  )}  */}
+  )} 
 
-   {/* { step == 2 && ( <Box 
+{step == 4 && (
+     <FirstTimeNewPass/> 
+  )} */}
+
+      {/* { step == 2 && ( <Box 
     display={"flex"}>
 <NavBar/>
 <Sidescreen/>
 
-
+<Login/>
    
     </Box>
 )} */}
- {/* <Resetcode/>  */}
-<Box 
-    display={"flex"}>
-<NavBar/>
-<Sidescreen/>
+      {/* <Resetcode/>  */}
+      <Box display={"flex"}>
+        <NavBar />
+        <Sidescreen />
+      </Box>
 
+      {/* <Progressbar/> */}
 
-   
-    </Box>
-    
-{/* <Progressbar/> */}
-
-
-{/* <FileUpload/>
+      {/* <FileUpload/>
 
 
 {/* <NewPass/> */}
-  {/* <Login /> */}
+      {/* <Login /> */}
 
-  {/* <LoginWithPasswordChangeAndForgot/> */}
+      {/* <LoginWithPasswordChangeAndForgot/> */}
 
-  {/* <Progress colorScheme='blue' w={"144px"}  hasStripe  value={90}/> */}
-</Box>
+      {/* <Progress colorScheme='blue' w={"144px"}  hasStripe  value={90}/> */}
+    </Box>
   );
 };
 
