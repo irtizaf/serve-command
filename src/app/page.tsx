@@ -21,9 +21,9 @@ const Home = () => {
   console.log(step);
   return (
     <Box>
-      {/* <Login/> */}
+      
 
-      {/* {step == 0 && (
+      {step == 0 && (
      <Login/> 
   )}
   {step == 1 && (
@@ -38,34 +38,18 @@ const Home = () => {
 
 {step == 4 && (
      <FirstTimeNewPass/> 
-  )} */}
+  )}
 
-      {/* { step == 2 && ( <Box 
+      { step == 5 && ( <Box 
     display={"flex"}>
 <NavBar/>
 <Sidescreen/>
 
-<Login/>
+
    
     </Box>
-)} */}
-      {/* <Resetcode/>  */}
-      <Box display={"flex"}>
-        <NavBar />
-        <Sidescreen />
-      </Box>
-
-      {/* <Progressbar/> */}
-
-      {/* <FileUpload/>
-
-
-{/* <NewPass/> */}
-      {/* <Login /> */}
-
-      {/* <LoginWithPasswordChangeAndForgot/> */}
-
-      {/* <Progress colorScheme='blue' w={"144px"}  hasStripe  value={90}/> */}
+)}
+     
     </Box>
   );
 };

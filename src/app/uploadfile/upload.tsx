@@ -78,9 +78,14 @@ const FileUpload: React.FC<FileUploadProps> = ({ onFileSelect }) => {
   };
 
   if (!selectedFile == false && uploadProgress <= 0) {
-    console.log(selectedFile, "file uploaded");
+    setTimeout(() => {
+      console.log(selectedFile, "file uploaded");
+
     uploadFile();
     setOpen(false);
+      
+    }, 1000);
+    
   }
 
   const namefile = selectedFile?.name;

@@ -204,6 +204,7 @@ const Reset = () => {
           alignSelf={"stretch"}
           borderRadius={"6px"}
           w={"100%"}
+          onClick={() => setStep(0)}
         >
           <Image
             src="/left-icon.svg"

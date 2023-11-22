@@ -43,7 +43,7 @@ const Login = () => {
       } else {
         // Authentication successful
         console.log("Authentication successful", initiateAuthResponse);
-        //setStep(2)
+        setStep(5)
 
         // Redirect or perform any additional actions upon successful login
       }
