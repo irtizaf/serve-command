@@ -103,9 +103,10 @@ const Resetcode = () => {
               lineHeight={{ "2xl": "24px" }}
               w={"100%"}
               h={"auto"}
+              textColor={"var(--gray-600, #475467)"}
             >
               <Text>
-                Code sent to:<strong>{username}</strong>{" "}
+                Code sent to: <strong>{username}</strong>
               </Text>
               <br />
 
@@ -317,11 +318,12 @@ const Resetcode = () => {
             </Box>
           </Box>
 
-          <Text
+          <Box
             display={"flex"}
             w={{ "2xl": "360px" }}
             justifyContent={"center"}
             textAlign={"center"}
+            gap={{"2xl":"1"}}
           >
             <Text
               textColor={"var(--gray-600, #475467)"}
@@ -331,7 +333,7 @@ const Resetcode = () => {
               fontWeight={400}
               lineHeight={{ "2xl": "24px" }}
             >
-              {" "}
+              
               Didn’t receive the email?
             </Text>
 
@@ -346,7 +348,7 @@ const Resetcode = () => {
             >
               Click to resend
             </Text>
-          </Text>
+          </Box>
         </Box>
 
         <Box

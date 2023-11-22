@@ -6,6 +6,8 @@ import { ChakraProvider } from '@chakra-ui/react'
 import Context from './context/context';
 import { AppProps } from 'next/app';
 import theme from "../../theme/theme"
+import '@fontsource/chivo/400.css'
+import '@fontsource/inter/700.css'
 
 export function Providers({ 
     children 

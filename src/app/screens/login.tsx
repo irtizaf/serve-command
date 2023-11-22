@@ -176,11 +176,11 @@ const Login = () => {
             h={{ "2xl": "34px", xl: "34px", lg: "30px", sm: "22px" }}
           />
           <Text
-            textColor={"gray.900"}
+            textColor={"var(--gray-900, #101828)"}
             textAlign={"center"}
             fontFamily={"Chivo"}
             fontStyle={"normal"}
-            fontWeight={"400"}
+            fontWeight={400}
             lineHeight={{
               "2xl": "39.9px",
               xl: "39.9px",
@@ -199,10 +199,10 @@ const Login = () => {
           display={"flex"}
           flexDirection={"column"}
           alignItems={"center"}
-          gap={{ "2xl": "24px", xl: "24px", lg: "15px", sm: "10px" }}
+          gap={{ "2xl": "0px", xl: "24px", lg: "15px", sm: "10px" }}
           alignSelf={"stretch"}
           borderRadius={"12px"}
-          h={{ "2xl": "212px", xl: "212px", lg: "auto", sm: "auto" }}
+          h={{ "2xl": "auto", xl: "212px", lg: "auto", sm: "auto" }}
         >
           <Box
             display={"flex"}

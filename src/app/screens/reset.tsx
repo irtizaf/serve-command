@@ -99,6 +99,7 @@ const Reset = () => {
               lineHeight={{ "2xl": "24px" }}
               w={"100%"}
               h={"auto"}
+              textColor={"var(--gray-600, #475467)"}
             >
               No worries, we will help you reset your password.
             </Text>
