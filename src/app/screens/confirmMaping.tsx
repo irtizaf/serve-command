@@ -10,18 +10,53 @@ import {
   Button,
   Box,
   Image,
-  Text
+  Text,
+  Switch
 } from "@chakra-ui/react";
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 
-import React from "react";
+
+
 import Login from "./login";
 import Reset from "./reset";
 import Resetcode from "./resetCode";
 import NewPass from "./newpassword";
 import FirstTimeNewPass from "./firsttimeloginhangepass";
 import { Valueone } from "../context/context";
+interface ApiResponse {
+  // Define the structure of your API response object
+  // This should match the structure of the objects returned by the API
+  // For example:
+  SORT_KEY: string;
+  name: string;
+  // ... other properties
+}
 const ConfirmMaping = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [data, setData] = useState<ApiResponse[]>([]);
+  const [error, setError] = useState<string | null>(null);
+  const value = [
+    { id: 1, name: 'Item 1' },
+    { id: 2, name: 'Item 2' },
+    { id: 3, name: 'Item 3' },
+  ];
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          'https://zp2dhmgwaa.execute-api.us-east-1.amazonaws.com/getalludfandsubdata?COMPANY_ID=52f9c443-7379-4142-95f2-c8502c7d32ba'
+        );
+        setData(response.data);
+        console.log(response.data)
+      } catch (error) {
+        setError('Error fetching data from the API');
+      }
+    };
+
+    fetchData();
+  }, []);
   const { step } = Valueone();
 
   return (
@@ -141,7 +176,41 @@ const ConfirmMaping = () => {
           borderRadius={"12px"}
           border={"1px solid var(--gray-200, #E2E8F0)"}
           background={"var(--white, #FFF)"}
-          > hello
+          > 
+          <Box
+          h={{"2xl":"88px"}}
+          w={{"2xl":"144px"}}
+          alignSelf={"stretch"}
+          background={"var(--white, #FFF)"}
+          >
+          {/* {value.map((x, index) => (
+  <Box
+  display={"flex"}
+  flexDirection={"column"}
+  key={index}>
+    
+    <Switch />
+  </Box>
+))} */}
+<Box p={4}>
+        {error ? (
+          <Text color="red.500">{error}</Text>
+        ) : (
+          <Box>
+            {data.map((item) => (
+              <Box key={item.SORT_KEY} borderWidth="1px" borderRadius="lg" p={2} my={2}>
+                <Switch/>
+                
+                {/* Add more fields as needed */}
+              </Box>
+            ))}
+          </Box>
+        )}
+      </Box>
+            
+
+          </Box>
+
           </Box>
         </Box>
       </Box>

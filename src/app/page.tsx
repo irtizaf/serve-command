@@ -14,42 +14,32 @@ import LoginWithPasswordChangeAndForgot from "./uploadfile/cognito";
 import Progressbar from "./screens/progressbar";
 import FirstTimeNewPass from "./screens/firsttimeloginhangepass";
 import ConfirmMaping from "./screens/confirmMaping";
+import NestedMenu from "./uploadfile/dropdowntesting";
+import NestedDropdownMenu from "./uploadfile/dropdowntesting";
 
 const Home = () => {
   const { step } = Valueone();
-
-  console.log(step);
+ 
   return (
     <Box>
+      {/* {step == 0 && <Login />}
+      {step == 1 && <Reset />}
+      {step == 2 && <Resetcode />}
+      {step == 3 && <NewPass />}
+
+      {step == 4 && <FirstTimeNewPass />}
+
+      {step == 5 && (
+        <Box display={"flex"}>
+          <NavBar />
+          <Sidescreen />
+        </Box>
+      )} */}
+
+    
+      <NestedDropdownMenu />
+
       
-
-      {step == 0 && (
-     <Login/> 
-  )}
-  {step == 1 && (
-     <Reset/> 
-  )}
-  {step == 2 && (
-     <Resetcode/> 
-  )}
- {step == 3 && (
-     <NewPass/> 
-  )} 
-
-{step == 4 && (
-     <FirstTimeNewPass/> 
-  )}
-
-      { step == 5 && ( <Box 
-    display={"flex"}>
-<NavBar/>
-<Sidescreen/>
-
-
-   
-    </Box>
-)}
-     
     </Box>
   );
 };
