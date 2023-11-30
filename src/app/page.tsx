@@ -16,9 +16,12 @@ import FirstTimeNewPass from "./screens/firsttimeloginhangepass";
 import ConfirmMaping from "./screens/confirmMaping";
 import NestedMenu from "./uploadfile/dropdowntesting";
 import NestedDropdownMenu from "./uploadfile/dropdowntesting";
+import PhoneNumberFormatter from "./uploadfile/phoneValidate";
 
 const Home = () => {
   const { step } = Valueone();
+
+  const x  = [1,2,3,4,5,6,7,8]
  
   return (
     <Box>
@@ -36,9 +39,16 @@ const Home = () => {
         </Box>
       )} */}
 
-    
-      <NestedDropdownMenu />
-
+{/* {x.map((item, index) => (
+  <Box
+  h={"400px"}
+  w={"400px"}
+  ><NestedDropdownMenu /> </Box>
+        
+      ))} */}
+      
+      {/* <NestedDropdownMenu/> */}
+      <PhoneNumberFormatter/>
       
     </Box>
   );
